@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace DevQuizzMVC.Models
 {
+    
     public class QuestionQuizz
     {
+
         public int Id { get; set; }
         public string QuestionText { get; set; }
         public bool isMultiple { get; set; }

@@ -8,7 +8,7 @@ namespace DevQuizzMVC.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.QuizzCategory",
+                "dbo.QuizzCategories",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -16,19 +16,19 @@ namespace DevQuizzMVC.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Quizz", "CategoryId", c => c.Int(nullable: false));
-            CreateIndex("dbo.Quizz", "CategoryId");
-            AddForeignKey("dbo.Quizz", "CategoryId", "dbo.QuizzCategory", "Id");
-            DropColumn("dbo.Quizz", "Category");
+            AddColumn("dbo.Quizzs", "CategoryId", c => c.Int(nullable: false));
+            CreateIndex("dbo.Quizzs", "CategoryId");
+            AddForeignKey("dbo.Quizzs", "CategoryId", "dbo.QuizzCategories", "Id");
+            DropColumn("dbo.Quizzs", "Category");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Quizz", "Category", c => c.String());
-            DropForeignKey("dbo.Quizz", "CategoryId", "dbo.QuizzCategory");
-            DropIndex("dbo.Quizz", new[] { "CategoryId" });
-            DropColumn("dbo.Quizz", "CategoryId");
-            DropTable("dbo.QuizzCategory");
+            AddColumn("dbo.Quizzs", "Category", c => c.String());
+            DropForeignKey("dbo.Quizzs", "CategoryId", "dbo.QuizzCategories");
+            DropIndex("dbo.Quizzs", new[] { "CategoryId" });
+            DropColumn("dbo.Quizzs", "CategoryId");
+            DropTable("dbo.QuizzCategories");
         }
     }
 }

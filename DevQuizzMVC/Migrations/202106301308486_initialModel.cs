@@ -8,7 +8,7 @@ namespace DevQuizzMVC.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.AnswerQuizz",
+                "dbo.AnswerQuizzs",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -17,11 +17,11 @@ namespace DevQuizzMVC.Migrations
                         QuestionQuizzId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.QuestionQuizz", t => t.QuestionQuizzId)
+                .ForeignKey("dbo.QuestionQuizzs", t => t.QuestionQuizzId)
                 .Index(t => t.QuestionQuizzId);
             
             CreateTable(
-                "dbo.QuestionQuizz",
+                "dbo.QuestionQuizzs",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -30,11 +30,11 @@ namespace DevQuizzMVC.Migrations
                         QuizzId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Quizz", t => t.QuizzId)
+                .ForeignKey("dbo.Quizzs", t => t.QuizzId)
                 .Index(t => t.QuizzId);
             
             CreateTable(
-                "dbo.Quizz",
+                "dbo.Quizzs",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -44,7 +44,7 @@ namespace DevQuizzMVC.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.User",
+                "dbo.Users",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -59,14 +59,14 @@ namespace DevQuizzMVC.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.AnswerQuizz", "QuestionQuizzId", "dbo.QuestionQuizz");
-            DropForeignKey("dbo.QuestionQuizz", "QuizzId", "dbo.Quizz");
-            DropIndex("dbo.QuestionQuizz", new[] { "QuizzId" });
-            DropIndex("dbo.AnswerQuizz", new[] { "QuestionQuizzId" });
-            DropTable("dbo.User");
-            DropTable("dbo.Quizz");
-            DropTable("dbo.QuestionQuizz");
-            DropTable("dbo.AnswerQuizz");
+            DropForeignKey("dbo.AnswerQuizzs", "QuestionQuizzId", "dbo.QuestionQuizzs");
+            DropForeignKey("dbo.QuestionQuizzs", "QuizzId", "dbo.Quizzs");
+            DropIndex("dbo.QuestionQuizzs", new[] { "QuizzId" });
+            DropIndex("dbo.AnswerQuizzs", new[] { "QuestionQuizzId" });
+            DropTable("dbo.Users");
+            DropTable("dbo.Quizzs");
+            DropTable("dbo.QuestionQuizzs");
+            DropTable("dbo.AnswerQuizzs");
         }
     }
 }

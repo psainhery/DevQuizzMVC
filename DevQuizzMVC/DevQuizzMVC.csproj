@@ -146,10 +146,6 @@
     <Compile Include="Migrations\202106301339130_AddQuizzCategoryClass.Designer.cs">
       <DependentUpon>202106301339130_AddQuizzCategoryClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107011057122_changementNomdeTables.cs" />
-    <Compile Include="Migrations\202107011057122_changementNomdeTables.Designer.cs">
-      <DependentUpon>202107011057122_changementNomdeTables.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\QuestionQuizz.cs" />
     <Compile Include="Models\Quizz.cs" />
@@ -253,9 +249,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106301339130_AddQuizzCategoryClass.resx">
       <DependentUpon>202106301339130_AddQuizzCategoryClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107011057122_changementNomdeTables.resx">
-      <DependentUpon>202107011057122_changementNomdeTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

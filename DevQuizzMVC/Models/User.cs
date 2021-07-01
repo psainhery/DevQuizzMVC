@@ -7,7 +7,7 @@ using System.Web;
 
 namespace DevQuizzMVC.Models
 {
-    [Table("User")]
+    
     public class User
     {
         public int Id { get; set; }
