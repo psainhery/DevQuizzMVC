@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="DTO\AnswerQuizzDTO.cs" />
     <Compile Include="DTO\QuestionQuizzDTO.cs" />
     <Compile Include="DTO\QuizzCategoryDTO.cs" />
@@ -145,6 +146,10 @@
     <Compile Include="Migrations\202106301339130_AddQuizzCategoryClass.Designer.cs">
       <DependentUpon>202106301339130_AddQuizzCategoryClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107011057122_changementNomdeTables.cs" />
+    <Compile Include="Migrations\202107011057122_changementNomdeTables.Designer.cs">
+      <DependentUpon>202107011057122_changementNomdeTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\QuestionQuizz.cs" />
     <Compile Include="Models\Quizz.cs" />
@@ -153,12 +158,44 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Tools\Convertisseur.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssAdminLayout\adminlte.min.css" />
+    <Content Include="Content\cssAdminLayout\all.min.css" />
+    <Content Include="Content\cssAdminLayout\pace-theme-flat-top.css" />
+    <Content Include="Content\cssLogin\animate.css" />
+    <Content Include="Content\cssLogin\animsition.min.css" />
+    <Content Include="Content\cssLogin\bootstrap.min.css" />
+    <Content Include="Content\cssLogin\daterangepicker.css" />
+    <Content Include="Content\cssLogin\font-awesome.min.css" />
+    <Content Include="Content\cssLogin\hamburgers.min.css" />
+    <Content Include="Content\cssLogin\icon-font.min.css" />
+    <Content Include="Content\cssLogin\main.css" />
+    <Content Include="Content\cssLogin\select2.min.css" />
+    <Content Include="Content\cssLogin\util.css" />
+    <Content Include="Content\images\bg-01.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\jsAdminLayout\adminlte.min.js" />
+    <Content Include="Content\jsAdminLayout\bootstrap.bundle.min.js" />
+    <Content Include="Content\jsAdminLayout\demo.js" />
+    <Content Include="Content\jsAdminLayout\jquery.min.js" />
+    <Content Include="Content\jsAdminLayout\pace.min.js" />
+    <Content Include="Content\jsLogin\animsition.min.js" />
+    <Content Include="Content\jsLogin\bootstrap.min.js" />
+    <Content Include="Content\jsLogin\countdowntime.js" />
+    <Content Include="Content\jsLogin\daterangepicker.js" />
+    <Content Include="Content\jsLogin\jquery-3.2.1.min.js" />
+    <Content Include="Content\jsLogin\main.js" />
+    <Content Include="Content\jsLogin\moment.min.js" />
+    <Content Include="Content\jsLogin\popper.js" />
+    <Content Include="Content\jsLogin\select2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -190,6 +227,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Login\Accueil.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -213,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106301339130_AddQuizzCategoryClass.resx">
       <DependentUpon>202106301339130_AddQuizzCategoryClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107011057122_changementNomdeTables.resx">
+      <DependentUpon>202107011057122_changementNomdeTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
