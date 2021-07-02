@@ -13,10 +13,11 @@ namespace DevQuizzMVC.Repository
         public UserDTO findUserByEmailAndPassword(UserDTO dto)
         {
             UserDTO user = new UserDTO();
+            //verification fonctionnement hashPassword
             using (MyContext context = new MyContext())
             {
                 User model = context.Users.FirstOrDefault(x => x.Email.Equals(dto.Email) &&
-                x.Password.Equals(dto.Password));
+                x.Password.Equals(HashTool.hashPassword(dto.Password)));
                 if (model != null && model.Id != 0)
                 {
                     user = Convertisseur.UserDtoFromUser(dto, model);

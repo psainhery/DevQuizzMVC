@@ -157,6 +157,7 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Tools\Convertisseur.cs" />
+    <Compile Include="Tools\HashTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
