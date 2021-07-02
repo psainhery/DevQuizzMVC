@@ -49,10 +49,8 @@ namespace DevQuizzMVC
 
             base.OnModelCreating(modelBuilder);
         }
+
         
-
-
-
     }
 
 
