@@ -194,6 +194,8 @@
     <Content Include="Content\cssLogin\main.css" />
     <Content Include="Content\cssLogin\select2.min.css" />
     <Content Include="Content\cssLogin\util.css" />
+    <Content Include="Content\images\backend.png" />
+    <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\images\DevQuizz_small.png" />
     <Content Include="Content\images\favicon.ico" />
@@ -263,6 +265,8 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\QuizzFrontList.cshtml" />
+    <Content Include="Views\Category\QuizzBackList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

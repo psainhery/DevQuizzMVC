@@ -13,5 +13,15 @@ namespace DevQuizzMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult QuizzFrontList()
+        {
+            return View();
+        }
+
+        public ActionResult QuizzBackList()
+        {
+            return View();
+        }
     }
 }

@@ -1,7 +1,15 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-padded">
+            <a href="@Url.Action("QuizzFrontList", "Category")" class="gallery" style="background-image: url('../../Content/images/banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg');background-size:contain;"></a>
+        </div>
+        <div class="col-md-6 col-padded">
+            <a href="@Url.Action("QuizzBackList", "Category")" class="gallery" style="background-image: url('../../Content/images/backend.png'); background-size: contain;"></a>
+        </div>
+    </div>
+</div>
