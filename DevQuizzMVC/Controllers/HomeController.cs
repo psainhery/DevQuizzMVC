@@ -13,11 +13,11 @@ namespace DevQuizzMVC.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Quizz()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return RedirectToAction("Index","Category");
         }
 
         public ActionResult Contact()

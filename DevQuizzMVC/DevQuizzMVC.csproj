@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -174,6 +175,15 @@
     <Content Include="Content\cssAdminLayout\adminlte.min.css" />
     <Content Include="Content\cssAdminLayout\all.min.css" />
     <Content Include="Content\cssAdminLayout\pace-theme-flat-top.css" />
+    <Content Include="Content\cssLayout\animate.css" />
+    <Content Include="Content\cssLayout\bootstrap.css" />
+    <Content Include="Content\cssLayout\flexslider.css" />
+    <Content Include="Content\cssLayout\icomoon.css" />
+    <Content Include="Content\cssLayout\magnific-popup.css" />
+    <Content Include="Content\cssLayout\owl.carousel.min.css" />
+    <Content Include="Content\cssLayout\owl.theme.default.min.css" />
+    <Content Include="Content\cssLayout\pricing.css" />
+    <Content Include="Content\cssLayout\style.css" />
     <Content Include="Content\cssLogin\animate.css" />
     <Content Include="Content\cssLogin\animsition.min.css" />
     <Content Include="Content\cssLogin\bootstrap.min.css" />
@@ -185,12 +195,26 @@
     <Content Include="Content\cssLogin\select2.min.css" />
     <Content Include="Content\cssLogin\util.css" />
     <Content Include="Content\images\bg-01.jpg" />
+    <Content Include="Content\images\DevQuizz_small.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\jsAdminLayout\adminlte.min.js" />
     <Content Include="Content\jsAdminLayout\bootstrap.bundle.min.js" />
     <Content Include="Content\jsAdminLayout\demo.js" />
     <Content Include="Content\jsAdminLayout\jquery.min.js" />
     <Content Include="Content\jsAdminLayout\pace.min.js" />
+    <Content Include="Content\jsLayout\bootstrap.min.js" />
+    <Content Include="Content\jsLayout\jquery.countTo.js" />
+    <Content Include="Content\jsLayout\jquery.easing.1.3.js" />
+    <Content Include="Content\jsLayout\jquery.flexslider-min.js" />
+    <Content Include="Content\jsLayout\jquery.magnific-popup.min.js" />
+    <Content Include="Content\jsLayout\jquery.min.js" />
+    <Content Include="Content\jsLayout\jquery.stellar.min.js" />
+    <Content Include="Content\jsLayout\jquery.waypoints.min.js" />
+    <Content Include="Content\jsLayout\magnific-popup-options.js" />
+    <Content Include="Content\jsLayout\main.js" />
+    <Content Include="Content\jsLayout\modernizr-2.6.2.min.js" />
+    <Content Include="Content\jsLayout\owl.carousel.min.js" />
+    <Content Include="Content\jsLayout\simplyCountdown.js" />
     <Content Include="Content\jsLogin\animsition.min.js" />
     <Content Include="Content\jsLogin\bootstrap.min.js" />
     <Content Include="Content\jsLogin\countdowntime.js" />
@@ -238,6 +262,7 @@
     <Content Include="Views\Shared\UserLayout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
