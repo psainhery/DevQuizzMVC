@@ -19,5 +19,20 @@ namespace DevQuizzMVC.Services
 
             return user;
         }
+
+        public List<UserDTO> getAllUsers()
+        {
+            return repo.getAllUsers();
+        }
+
+        public UserDTO getUserDTOById(int? id)
+        {
+            return repo.getUserDTOById(id);
+        }
+
+        public void Add(UserDTO userDTO)
+        {
+            repo.Add(userDTO);
+        }
     }
 }
