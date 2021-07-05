@@ -66,7 +66,7 @@ namespace DevQuizzMVC.Migrations
             DropTable("dbo.Users");
             DropTable("dbo.Quizzs");
             DropTable("dbo.QuestionQuizzs");
-            DropTable("dbo.AnswerQuizzs");
+            DropTable("dbo.AnswerQuizz");
         }
     }
 }

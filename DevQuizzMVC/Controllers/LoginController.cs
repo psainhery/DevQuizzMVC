@@ -25,6 +25,7 @@ namespace DevQuizzMVC.Controllers
         [HttpPost]
         public ActionResult Index(UserDTO dto)
         {
+           
             if (ModelState.IsValidField("Email") && ModelState.IsValidField("Password"))
             {
                 UserDTO user = service.findUserByEmailAndPassword(dto);
