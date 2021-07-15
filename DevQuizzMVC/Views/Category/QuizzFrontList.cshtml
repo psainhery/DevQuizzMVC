@@ -41,7 +41,8 @@
         {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.Title)
+        @*<a href="@Url.Action("DoQuizz", "Quizz")">@Html.DisplayFor(modelItem => item.Title)</a>*@       
+        @Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "DoQuizz","Quizz", new { id = item.Id },null)
     </td>
 </tr>}
 

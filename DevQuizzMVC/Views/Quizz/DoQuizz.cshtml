@@ -1,0 +1,22 @@
+﻿@model DevQuizzMVC.DTO.QuizzDTO
+
+@{
+    ViewBag.Title = "DoQuizz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DoQuizz</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.CategoryId)
+        </th>
+        <th></th>
+    </tr>
+
+</table>

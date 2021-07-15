@@ -24,5 +24,29 @@ namespace DevQuizzMVC.Repository
             }
             return lst;
         }
+
+        public QuizzDTO getQuizzDTOById(int? id)
+        {
+            QuizzDTO dto = new QuizzDTO();
+            using (MyContext context = new MyContext())
+            {
+                Quizz model = context.Quizzes.Find(id);
+                if (model != null)
+                {
+                    dto = Convertisseur.QuizzDtoFromQuizz(dto, model);
+                }
+            }
+            return dto;
+        }
+
+        public void Add(QuizzDTO quizzDTO)
+        {
+            Quizz q = Convertisseur.QuizzFromQuizzDto(quizzDTO, new Quizz());
+            using (MyContext context = new MyContext())
+            {
+                context.Quizzes.Add(q);
+                context.SaveChanges();
+            }
+        }
     }
 }

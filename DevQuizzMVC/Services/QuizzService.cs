@@ -15,5 +15,15 @@ namespace DevQuizzMVC.Services
         {
             return repo.getAllQuizzs();
         }
+
+        public void Add(QuizzDTO quizzDTO)
+        {
+            repo.Add(quizzDTO);
+        }
+
+        public QuizzDTO getQuizzDTOById(int? id)
+        {
+            return repo.getQuizzDTOById(id);
+        }
     }
 }

@@ -39,6 +39,7 @@ namespace DevQuizzMVC.Tools
             return dto;
         }
 
+      
         public static QuestionQuizzDTO QuestionQuizzDTOFromQuestionQuizz(QuestionQuizzDTO dto, QuestionQuizz model)
         {
             dto.Id = model.Id;
@@ -58,6 +59,17 @@ namespace DevQuizzMVC.Tools
             model.QuizzId = dto.QuizzId;
             model.Quizz = dto.Quizz;
             model.AnswersQuizz = dto.AnswersQuizz;
+            return model;
+          
+              
+        public static Quizz QuizzFromQuizzDto(QuizzDTO dto, Quizz model)
+        {
+            model.Id = dto.Id;
+            model.Title = dto.Title;
+            model.CategoryId = dto.CategoryId;
+            model.QuizzCategory = dto.QuizzCategory;
+            model.QuestionsQuizz = dto.QuestionsQuizz;
+
             return model;
         }
     }
