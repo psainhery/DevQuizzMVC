@@ -16,7 +16,7 @@ namespace DevQuizzMVC.DTO
         public bool isMultiple { get; set; }
         public int QuizzId { get; set; }
         //Besoin ou pas??
-        //public Quizz Quizz { get; set; }
+        public Quizz Quizz { get; set; }
         public List<AnswerQuizz> AnswersQuizz { get; set; }
     }
 }
