@@ -18,6 +18,12 @@ namespace DevQuizzMVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "RouteQuizz",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Quizz", action = "DoQuizz", id = UrlParameter.Optional }
+            //);
         }
     }
 }

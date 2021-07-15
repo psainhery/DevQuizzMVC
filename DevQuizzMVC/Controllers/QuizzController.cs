@@ -4,6 +4,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -53,6 +54,22 @@ namespace DevQuizzMVC.Controllers
             {
                 service.Add(quizzDTO);
                 return RedirectToAction("Index");
+            }
+            return View(quizzDTO);
+        }
+
+        public ActionResult DoQuizz(int? id)
+        {
+            //recuperer le quiz cliqué 
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            QuizzDTO quizzDTO = service.getQuizzDTOById(id);
+            if (quizzDTO == null)
+            {
+                return HttpNotFound();
             }
             return View(quizzDTO);
         }
