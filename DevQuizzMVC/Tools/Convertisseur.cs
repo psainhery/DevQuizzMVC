@@ -38,5 +38,27 @@ namespace DevQuizzMVC.Tools
             dto.QuestionsQuizz = model.QuestionsQuizz;
             return dto;
         }
+
+        public static QuestionQuizzDTO QuestionQuizzDTOFromQuestionQuizz(QuestionQuizzDTO dto, QuestionQuizz model)
+        {
+            dto.Id = model.Id;
+            dto.QuestionText = model.QuestionText;
+            dto.isMultiple = model.isMultiple;
+            dto.QuizzId = model.QuizzId;
+            dto.Quizz = model.Quizz;
+            dto.AnswersQuizz = model.AnswersQuizz;
+            return dto;
+        }
+
+        public static QuestionQuizz QuestionQuizzFromQuestionQuizzDTO(QuestionQuizzDTO dto, QuestionQuizz model)
+        {
+            model.Id = dto.Id;
+            model.QuestionText = dto.QuestionText;
+            model.isMultiple = dto.isMultiple;
+            model.QuizzId = dto.QuizzId;
+            model.Quizz = dto.Quizz;
+            model.AnswersQuizz = dto.AnswersQuizz;
+            return model;
+        }
     }
 }

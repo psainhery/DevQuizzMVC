@@ -137,6 +137,9 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Repository\QuestionQuizzRepository.cs" />
+    <Compile Include="Services\QuestionQuizzService.cs" />
     <Compile Include="Controllers\QuizzController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTO\AnswerQuizzDTO.cs" />
@@ -276,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Question\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
