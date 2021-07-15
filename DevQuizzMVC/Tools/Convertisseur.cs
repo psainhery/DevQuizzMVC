@@ -28,5 +28,15 @@ namespace DevQuizzMVC.Tools
             model.isAdmin = dto.isAdmin;
             return model;
         }
+
+        public static QuizzDTO QuizzDtoFromQuizz(QuizzDTO dto, Quizz model)
+        {
+            dto.Id = model.Id;
+            dto.Title = model.Title;
+            dto.CategoryId = model.CategoryId;
+            dto.QuizzCategory = model.QuizzCategory;
+            dto.QuestionsQuizz = model.QuestionsQuizz;
+            return dto;
+        }
     }
 }

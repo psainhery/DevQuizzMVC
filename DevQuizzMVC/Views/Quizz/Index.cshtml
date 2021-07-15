@@ -1,0 +1,51 @@
+﻿@model IPagedList<DevQuizzMVC.DTO.QuizzDTO>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<h2>Liste des Quizzs</h2>
+<hr />
+<br />
+<div class="container">
+    <p>
+        @using (Html.BeginForm("Index", "Quizz", FormMethod.Get))
+        {
+            <input type="text" name="search" placeholder="Mot clé........." />
+            <input type="submit" value="Rechercher" name="submit" class="btn btn-dark" />
+        }
+    </p>
+</div>
+<div class="container">
+    <p>
+        @Html.ActionLink("Créer un Quizz", "Create")
+    </p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @Html.ActionLink("↓", "Index", new { search = Request.QueryString["search"], i = Request.QueryString["i"], sortBy = "nameDesc" })
+                @Html.DisplayNameFor(model => model.First().Title)
+                @Html.ActionLink("↑", "Index", new { search = Request.QueryString["search"], i = Request.QueryString["i"], sortBy = "nameAsc" })
+            </th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    @Html.PagedListPager(Model, i => Url.Action("Index", "Quizz", new { i, search = Request.QueryString["search"] }))
+</div>

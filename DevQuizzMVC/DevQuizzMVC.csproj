@@ -137,6 +137,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\QuizzController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTO\AnswerQuizzDTO.cs" />
     <Compile Include="DTO\QuestionQuizzDTO.cs" />
@@ -162,7 +163,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\QuizzRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Services\QuizzService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Tools\Convertisseur.cs" />
     <Compile Include="Tools\HashTool.cs" />
@@ -233,6 +236,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\cssLayout\style.css.map" />
+    <Content Include="Content\cssLayout\bootstrap.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -267,6 +272,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\QuizzFrontList.cshtml" />
     <Content Include="Views\Category\QuizzBackList.cshtml" />
+    <Content Include="Views\Quizz\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

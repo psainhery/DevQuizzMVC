@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace DevQuizzMVC.Controllers
 {
     public class CategoryController : Controller
     {
+        private QuizzService service = new QuizzService();
+
         // GET: Category
         public ActionResult Index()
         {
@@ -16,7 +20,16 @@ namespace DevQuizzMVC.Controllers
 
         public ActionResult QuizzFrontList()
         {
-            return View();
+            /* Recuperer une lst de Quiz en BDD
+             * methode GetAllQuizz
+             * besoin d'un nouveau service QuizzService
+             * besoin d'un nouveau Repo QuizzRepository
+             * utilisation du QuizzDTO
+             */
+            List<QuizzDTO> lst = new List<QuizzDTO>();
+            lst = service.getAllQuizzs();
+
+            return View(lst);
         }
 
         public ActionResult QuizzBackList()
