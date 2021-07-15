@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace DevQuizzMVC.Controllers
 {
-    public class AccountController : Controller
+    public class CreateAccountController : Controller
     {
         // GET: Account
         public ActionResult Index()
