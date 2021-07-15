@@ -40,6 +40,7 @@ namespace DevQuizzMVC.Controllers
                     {
                         //TODO
                         //return RedirectToAction("Accueil");
+                        Session["userNormal"] = user;
                         return RedirectToAction("Index", "Home");
                     }
                 }
