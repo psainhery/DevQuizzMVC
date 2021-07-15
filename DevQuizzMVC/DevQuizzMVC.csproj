@@ -273,6 +273,7 @@
     <Content Include="Views\Category\QuizzFrontList.cshtml" />
     <Content Include="Views\Category\QuizzBackList.cshtml" />
     <Content Include="Views\Quizz\Index.cshtml" />
+    <Content Include="Views\Quizz\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,5 +37,24 @@ namespace DevQuizzMVC.Controllers
 
             return View(lst.ToPagedList(i ?? 1, 5));
         }
+
+        public ActionResult Create()
+        {
+            return View(new QuizzDTO());
+        }
+        // POST: Utilisateur/Create
+        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
+        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO quizzDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                service.Add(quizzDTO);
+                return RedirectToAction("Index");
+            }
+            return View(quizzDTO);
+        }
     }
 }
