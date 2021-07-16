@@ -76,13 +76,13 @@ namespace DevQuizzMVC.Controllers
         //    return View(quizzDTO);
         //}
 
-        public ActionResult DoQuizz(string search, int? i, string sortBy)
+        public ActionResult DoQuizz(string search, int? i, string sortBy, QuizzDTO quizzDTO)
         {
             List<QuestionQuizzDTO> lst = new List<QuestionQuizzDTO>();
             if (search != null)
                 lst = questionService.GetAllQuestions().Where(u => u.QuestionText.Contains(search)).ToList();
             else
-                lst = questionService.GetAllQuestions();
+                lst = questionService.GetAllQuestions().Where(q => q.QuizzId.Equals(quizzDTO.Id)).ToList();
 
             switch (sortBy)
             {

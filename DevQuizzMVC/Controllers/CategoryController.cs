@@ -28,7 +28,7 @@ namespace DevQuizzMVC.Controllers
              */
             List<QuizzDTO> lst = new List<QuizzDTO>();
             lst = service.getAllQuizzs().Where(q => q.CategoryId.Equals(1)).ToList();
-
+            
             return View(lst);
         }
 
