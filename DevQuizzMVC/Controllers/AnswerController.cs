@@ -42,7 +42,6 @@ namespace DevQuizzMVC.Controllers
 
         }
 
-        // GET: Utilisateur/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -62,9 +61,7 @@ namespace DevQuizzMVC.Controllers
 
         }
 
-        // POST: Utilisateur/Edit/5
-        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
-        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO)
@@ -77,7 +74,7 @@ namespace DevQuizzMVC.Controllers
             return View(answerQuizzDTO);
         }
 
-        // GET: Utilisateur/Delete/5
+        
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -92,13 +89,14 @@ namespace DevQuizzMVC.Controllers
             return View(answerQuizzDTO);
         }
 
-        // POST: Utilisateur/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id, AnswerQuizzDTO answerQuizzDTO)
+        public ActionResult DeleteConfirmed(int id)
         {
+            AnswerQuizzDTO answerQuizzDTO = service.getAnswerDTOById(id);
             service.DeleteAnswerDTO(id);
-            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId }); // ne renvoie pas au bon index
+            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId }); // ne renvoie pas au bon index -> a corriger
         }
 
         public ActionResult Create()
@@ -106,13 +104,12 @@ namespace DevQuizzMVC.Controllers
             return View(new AnswerQuizzDTO());
         }
 
-        // POST: Utilisateur/Create
-        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
-        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO)
         {
+            //rentrer automatiquement la valeur QuestionId
             if (ModelState.IsValid)
             {
                 service.Add(answerQuizzDTO);
