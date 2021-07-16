@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Models;
 using DevQuizzMVC.Repository;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,36 @@ namespace DevQuizzMVC.Services
         public void Add(UserDTO userDTO)
         {
             repo.Add(userDTO);
+        }
+        public User details(int id)
+        {
+            User c = null;
+            using (MyContext context = new MyContext())
+            {
+                c = context.Users.Find(id);
+            }
+
+            return c;
+            
+        }
+        public void Update(User c)
+        {
+            using (MyContext context = new MyContext())
+            {
+
+                User UserDB = context.Users.Find(c.Id); //
+                if (UserDB != null) 
+                {
+                    UserDB.Name = c.Name;
+                    UserDB.Email = c.Email;
+                    UserDB.Password = c.Password;
+
+                    //Appel des setters => etat = Modified
+                    context.SaveChanges();
+                }
+
+
+            }
         }
     }
 }

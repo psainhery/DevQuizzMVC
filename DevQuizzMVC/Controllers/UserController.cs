@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Models;
 using DevQuizzMVC.Services;
 using PagedList;
 using System;
@@ -38,20 +39,7 @@ namespace DevQuizzMVC.Controllers
             
             return View(lst.ToPagedList(i ?? 1, 5));
         }
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserDTO userDTO = service.getUserDTOById(id);
-            if (userDTO == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userDTO);
-        }
-
+       
 
         public ActionResult Create()
         {
@@ -72,7 +60,61 @@ namespace DevQuizzMVC.Controllers
             return View(userDTO);
         }
 
+    
+        public ActionResult Delete(int id)
+        {
+            //using with ressources
 
+            using (MyContext context = new MyContext())
+            {
+                User c = context.Users.Find(id);
+               
+                if (c != null)
+                {
+                    context.Users.Remove(c);
+
+                    context.SaveChanges();
+                   
+                }
+                else
+                {
+                    Console.WriteLine("erreur ");
+                }
+                return RedirectToAction("index");
+
+            } 
+
+
+
+        }
+        
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserDTO userDTO = service.getUserDTOById(id);
+            if (userDTO == null)
+            {
+                return HttpNotFound();
+            }
+            //return RedirectToAction("detailsUser");
+            return View(userDTO);
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,UserName,Password,isAdmin,Email")] UserDTO userDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                service.Update(userDTO);
+                return RedirectToAction("Index");
+            }
+            return View(userDTO);
+        }
+        
 
 
     }
