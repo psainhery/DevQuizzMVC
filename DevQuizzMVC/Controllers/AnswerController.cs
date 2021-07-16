@@ -89,7 +89,7 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
-            return View(answerQuizzDTO)
+            return View(answerQuizzDTO);
         }
 
         // POST: Utilisateur/Delete/5
@@ -98,7 +98,28 @@ namespace DevQuizzMVC.Controllers
         public ActionResult DeleteConfirmed(int id, AnswerQuizzDTO answerQuizzDTO)
         {
             service.DeleteAnswerDTO(id);
-            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
+            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId }); // ne renvoie pas au bon index
+        }
+
+        public ActionResult Create()
+        {
+            return View(new AnswerQuizzDTO());
+        }
+
+        // POST: Utilisateur/Create
+        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
+        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                service.Add(answerQuizzDTO);
+                return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
+            }
+
+            return View(answerQuizzDTO);
         }
     }
 }

@@ -34,6 +34,16 @@ namespace DevQuizzMVC.Repository
             }
         }
 
+        public void Add(AnswerQuizzDTO answerQuizzDTO)
+        {
+            AnswerQuizz a = Convertisseur.AnswerQuizzFromAnswerQuizzDTO(answerQuizzDTO, new AnswerQuizz());
+            using (MyContext context = new MyContext())
+            {
+                context.AnswerQuizzes.Add(a);
+                context.SaveChanges();
+            }
+        }
+
         public void Update(AnswerQuizzDTO answerQuizzDTO)
         {
             using (MyContext context = new MyContext())

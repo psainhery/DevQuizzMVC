@@ -30,5 +30,10 @@ namespace DevQuizzMVC.Services
         {
             repo.DeleteAnswerDTO(id);
         }
+
+        public void Add(AnswerQuizzDTO answerQuizzDTO)
+        {
+            repo.Add(answerQuizzDTO);
+        }
     }
 }
