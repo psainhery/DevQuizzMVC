@@ -81,5 +81,14 @@ namespace DevQuizzMVC.Tools
             dto.QuestionQuizzId = model.QuestionQuizzId;
             return dto;
         }
+
+        public static AnswerQuizz AnswerQuizzFromAnswerQuizzDTO(AnswerQuizzDTO dto, AnswerQuizz model)
+        {
+            model.Id = dto.Id;
+            model.AnswerText = dto.AnswerText;
+            model.isCorrect = dto.isCorrect;
+            model.QuestionQuizzId = dto.QuestionQuizzId;
+            return model;
+        }
     }
 }

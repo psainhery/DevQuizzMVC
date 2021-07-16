@@ -15,5 +15,20 @@ namespace DevQuizzMVC.Services
         {
             return repo.GetAllAnswers();
         }
+
+        public AnswerQuizzDTO getAnswerDTOById(int? id)
+        {
+            return repo.getAnswerDTOById(id);
+        }
+
+        public void Update(AnswerQuizzDTO answerQuizzDTO)
+        {
+            repo.Update(answerQuizzDTO);
+        }
+
+        public void DeleteAnswerDTO(int id)
+        {
+            repo.DeleteAnswerDTO(id);
+        }
     }
 }
