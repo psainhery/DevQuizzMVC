@@ -13,6 +13,7 @@ namespace DevQuizzMVC.Controllers
     public class AnswerController : Controller
     {
         AnswerQuizzService service = new AnswerQuizzService();
+        QuestionQuizzService questionService = new QuestionQuizzService();
 
         public ActionResult Index(string search, int? i, string sortBy, int? id)
         {
@@ -37,6 +38,7 @@ namespace DevQuizzMVC.Controllers
                 default:
                     break;
             }
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
 
             return View(lst.ToPagedList(i ?? 1, 5));
 
@@ -55,22 +57,25 @@ namespace DevQuizzMVC.Controllers
             }
             else
             {
+                ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
                 return View(answerQuizzDTO);
 
             }
+            
 
         }
 
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO)
+        public ActionResult Edit([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
             {
                 service.Update(answerQuizzDTO);
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(answerQuizzDTO);
         }
 
@@ -86,6 +91,7 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(answerQuizzDTO);
         }
 
@@ -96,18 +102,20 @@ namespace DevQuizzMVC.Controllers
         {
             AnswerQuizzDTO answerQuizzDTO = service.getAnswerDTOById(id);
             service.DeleteAnswerDTO(id);
-            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId }); // ne renvoie pas au bon index -> a corriger
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
+            return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(new AnswerQuizzDTO());
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO)
+        public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             //rentrer automatiquement la valeur QuestionId
             if (ModelState.IsValid)
@@ -115,7 +123,7 @@ namespace DevQuizzMVC.Controllers
                 service.Add(answerQuizzDTO);
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
-
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(answerQuizzDTO);
         }
     }
