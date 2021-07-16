@@ -23,15 +23,20 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Add(dto);
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("registrationSuccess", "Account");
             }
             else
             {
                 return View(dto);
             }
-            
-            
             return View(dto);
+
+
+
+        }
+        public ActionResult registrationSuccess()
+        {
+            return View();
         }
     }
 }

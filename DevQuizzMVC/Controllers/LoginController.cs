@@ -57,6 +57,14 @@ namespace DevQuizzMVC.Controllers
             
         }
 
+        public ActionResult Logout()
+        {
+            //Session["userAdmin"] = null;
+            //Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
+
 
 
     }
