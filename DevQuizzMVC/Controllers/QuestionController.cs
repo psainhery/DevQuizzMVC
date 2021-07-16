@@ -1,5 +1,4 @@
 ﻿using DevQuizzMVC.DTO;
-using DevQuizzMVC.Services;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -13,12 +12,11 @@ namespace DevQuizzMVC.Controllers
     public class QuestionController : Controller
     {
         private QuestionQuizzService service = new QuestionQuizzService();
-
         // GET: Question
         public ActionResult Index(string search, int? i, string sortBy, int? id)
         {
             List<QuestionQuizzDTO> lst = new List<QuestionQuizzDTO>();
-            
+
 
             if (search != null)
                 lst = service.GetAllQuestions().Where(q => q.QuestionText.Contains(search)).ToList();
@@ -39,8 +37,8 @@ namespace DevQuizzMVC.Controllers
                     break;
             }
 
-            return View (lst.ToPagedList(i ?? 1, 5));
-            
+            return View(lst.ToPagedList(i ?? 1, 5));
+
         }
 
         public ActionResult Details(int? id)

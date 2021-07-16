@@ -134,11 +134,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Repository\AnswerQuizzRepository.cs" />
     <Compile Include="Repository\QuestionQuizzRepository.cs" />
+    <Compile Include="Services\AnswerQuizzService.cs" />
     <Compile Include="Services\QuestionQuizzService.cs" />
     <Compile Include="Controllers\QuizzController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -279,6 +282,7 @@
     <Content Include="Views\Quizz\Create.cshtml" />
     <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Quizz\DoQuizz.cshtml" />
+    <Content Include="Views\Answer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

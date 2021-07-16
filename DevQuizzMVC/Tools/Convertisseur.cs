@@ -27,7 +27,7 @@ namespace DevQuizzMVC.Tools
             model.Password = dto.Password;
             model.isAdmin = dto.isAdmin;
             return model;
-        }
+        }        
 
         public static QuizzDTO QuizzDtoFromQuizz(QuizzDTO dto, Quizz model)
         {
@@ -71,6 +71,15 @@ namespace DevQuizzMVC.Tools
             model.QuestionsQuizz = dto.QuestionsQuizz;
 
             return model;
+        }
+
+        public static AnswerQuizzDTO AnswerQuizzDTOFromAnswerQuizz(AnswerQuizzDTO dto, AnswerQuizz model)
+        {
+            dto.Id = model.Id;
+            dto.AnswerText = model.AnswerText;
+            dto.isCorrect = model.isCorrect;
+            dto.QuestionQuizzId = model.QuestionQuizzId;
+            return dto;
         }
     }
 }
