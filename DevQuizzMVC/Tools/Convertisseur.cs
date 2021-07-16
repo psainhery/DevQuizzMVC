@@ -60,8 +60,9 @@ namespace DevQuizzMVC.Tools
             model.Quizz = dto.Quizz;
             model.AnswersQuizz = dto.AnswersQuizz;
             return model;
-          
-              
+
+        }
+
         public static Quizz QuizzFromQuizzDto(QuizzDTO dto, Quizz model)
         {
             model.Id = dto.Id;

@@ -73,5 +73,19 @@ namespace DevQuizzMVC.Controllers
             }
             return View(quizzDTO);
         }
+
+        /*public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            QuizzDTO QuizzDTO = service.getQuizzDTOById(id);
+            if (QuizzDTO == null)
+            {
+                return HttpNotFound();
+            }
+            return View(QuizzDTO);
+        }*/
     }
 }

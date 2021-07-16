@@ -278,10 +278,10 @@
     <Content Include="Views\Quizz\Index.cshtml" />
     <Content Include="Views\Quizz\Create.cshtml" />
     <Content Include="Views\Quizz\DoQuizz.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Question\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -17,6 +17,7 @@ namespace DevQuizzMVC.DTO
         public QuizzCategory QuizzCategory { get; set; }
 
         public List<QuestionQuizz> QuestionsQuizz { get; set; }
+        
 
         public QuizzDTO()
         {
