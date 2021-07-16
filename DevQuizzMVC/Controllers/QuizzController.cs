@@ -13,6 +13,8 @@ namespace DevQuizzMVC.Controllers
     public class QuizzController : Controller
     {
         private QuizzService service = new QuizzService();
+        private QuestionQuizzService questionService = new QuestionQuizzService();
+
         public ActionResult Index(string search, int? i, string sortBy)
         {
             // Affichage Liste QUizz coté admin
@@ -58,34 +60,45 @@ namespace DevQuizzMVC.Controllers
             return View(quizzDTO);
         }
 
-        public ActionResult DoQuizz(int? id)
-        {
-            //recuperer le quiz cliqué 
+        //public ActionResult DoQuizz(int? id)
+        //{
+        //    //recuperer le quiz cliqué 
 
-            if (id == null)
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    QuizzDTO quizzDTO = service.getQuizzDTOById(id);
+        //    if (quizzDTO == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(quizzDTO);
+        //}
+
+        public ActionResult DoQuizz(string search, int? i, string sortBy)
+        {
+            List<QuestionQuizzDTO> lst = new List<QuestionQuizzDTO>();
+            if (search != null)
+                lst = questionService.GetAllQuestions().Where(u => u.QuestionText.Contains(search)).ToList();
+            else
+                lst = questionService.GetAllQuestions();
+
+            switch (sortBy)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                case "nameAsc":
+                    lst = lst.OrderBy(x => x.QuestionText).ToList();
+                    break;
+                case "nameDesc":
+                    lst = lst.OrderByDescending(x => x.QuestionText).ToList();
+                    break;
+                case null:
+                    break;
+                default:
+                    break;
             }
-            QuizzDTO quizzDTO = service.getQuizzDTOById(id);
-            if (quizzDTO == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quizzDTO);
+
+            return View(lst.ToPagedList(i ?? 1, 5));
         }
-
-        /*public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            QuizzDTO QuizzDTO = service.getQuizzDTOById(id);
-            if (QuizzDTO == null)
-            {
-                return HttpNotFound();
-            }
-            return View(QuizzDTO);
-        }*/
     }
 }
