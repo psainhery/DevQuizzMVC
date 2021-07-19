@@ -1,5 +1,5 @@
-﻿@model DevQuizzMVC.DTO.QuizzDTO
-
+﻿@model IPagedList<DevQuizzMVC.DTO.QuestionQuizzDTO>
+@using PagedList;
 @{
     ViewBag.Title = "DoQuizz";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,16 +7,35 @@
 
 <h2>DoQuizz</h2>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayFor(model => model.CategoryId)
-        </th>
-        <th></th>
-    </tr>
-
-</table>
+@{
+    List<DevQuizzMVC.DTO.AnswerQuizzDTO> answerList = new List<DevQuizzMVC.DTO.AnswerQuizzDTO>();
+    DevQuizzMVC.Services.AnswerQuizzService service = new DevQuizzMVC.Services.AnswerQuizzService();
+}
+<form>
+    @foreach (var item in Model)
+    {
+        <p class="question-quizz"> @Html.DisplayFor(modelItem => item.QuestionText)</p>
+        <div>
+            @{answerList = service.GetAllAnswers().Where(a => a.QuestionQuizzId == item.Id).ToList();
+                foreach (var answer in answerList)
+                {
+                    if (item.isMultiple)
+                    {
+                        <input type="checkbox" id=@answer.AnswerText
+                               name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
+                        <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
+                    }
+                    else
+                    {
+                        <input type="radio" id=@answer.AnswerText
+                               name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
+                        <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
+                    }
+                }
+            }
+        </div>
+    }
+    <div>
+        <button type="submit">Envoyer</button>
+    </div>
+</form>

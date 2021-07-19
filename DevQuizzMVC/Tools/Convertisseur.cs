@@ -27,7 +27,7 @@ namespace DevQuizzMVC.Tools
             model.Password = dto.Password;
             model.isAdmin = dto.isAdmin;
             return model;
-        }
+        }        
 
         public static QuizzDTO QuizzDtoFromQuizz(QuizzDTO dto, Quizz model)
         {
@@ -60,9 +60,8 @@ namespace DevQuizzMVC.Tools
             model.Quizz = dto.Quizz;
             model.AnswersQuizz = dto.AnswersQuizz;
             return model;
-
         }
-
+              
         public static Quizz QuizzFromQuizzDto(QuizzDTO dto, Quizz model)
         {
             model.Id = dto.Id;
@@ -71,6 +70,24 @@ namespace DevQuizzMVC.Tools
             model.QuizzCategory = dto.QuizzCategory;
             model.QuestionsQuizz = dto.QuestionsQuizz;
 
+            return model;
+        }
+
+        public static AnswerQuizzDTO AnswerQuizzDTOFromAnswerQuizz(AnswerQuizzDTO dto, AnswerQuizz model)
+        {
+            dto.Id = model.Id;
+            dto.AnswerText = model.AnswerText;
+            dto.isCorrect = model.isCorrect;
+            dto.QuestionQuizzId = model.QuestionQuizzId;
+            return dto;
+        }
+
+        public static AnswerQuizz AnswerQuizzFromAnswerQuizzDTO(AnswerQuizzDTO dto, AnswerQuizz model)
+        {
+            model.Id = dto.Id;
+            model.AnswerText = dto.AnswerText;
+            model.isCorrect = dto.isCorrect;
+            model.QuestionQuizzId = dto.QuestionQuizzId;
             return model;
         }
     }
