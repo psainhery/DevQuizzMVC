@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Pace</title>
+    
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,6 +22,8 @@
 
 </head>
 <body class="hold-transition sidebar-mini pace-primary">
+
+    
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -196,7 +199,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -242,13 +245,27 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/Login/Logout">Déconnexion</a></li>
+                                <li class="breadcrumb-item"><a type="button" class="btn btn-primary" href="#myModal" data-toggle="modal">Déconnexion</a></li>
                             </ol>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
 
+            <div  class="modal fade" tabindex="-1" role="dialog" id="myModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                
+                        <div class="modal-body">
+                            <p>Etes-vous sûr de vouloir se déconnecter?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                            <button type="button" class="btn btn-default">@Html.ActionLink("Déconnexion", "Logout", "Login")</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
             <!-- Main content -->
             <section class="content">
                 @RenderBody()
@@ -283,6 +300,8 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
