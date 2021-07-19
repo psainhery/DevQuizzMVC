@@ -14,7 +14,7 @@
 <form>
     @foreach (var item in Model)
     {
-        <p> @Html.DisplayFor(modelItem => item.QuestionText)</p>
+        <p class="question-quizz"> @Html.DisplayFor(modelItem => item.QuestionText)</p>
         <div>
             @{answerList = service.GetAllAnswers().Where(a => a.QuestionQuizzId == item.Id).ToList();
                 foreach (var answer in answerList)
