@@ -102,7 +102,21 @@ namespace DevQuizzMVC.Controllers
             //return RedirectToAction("detailsUser");
             return View(userDTO);
         }
-        
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserDTO userDTO = service.getUserDTOById(id);
+            if (userDTO == null)
+            {
+                return HttpNotFound();
+            }
+            return View(userDTO);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,UserName,Password,isAdmin,Email")] UserDTO userDTO)
@@ -110,7 +124,7 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Update(userDTO);
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
             return View(userDTO);
         }

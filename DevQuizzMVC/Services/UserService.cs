@@ -46,7 +46,7 @@ namespace DevQuizzMVC.Services
             return c;
             
         }
-        public void Update(User c)
+        public void Update(UserDTO c)
         {
             using (MyContext context = new MyContext())
             {
