@@ -10,9 +10,15 @@ namespace DevQuizzMVC.DTO
     {
         public int Id { get; set; }
 
+
+        [Required(ErrorMessage = "Saisisser votre nom")]
         public string Name { get; set; }
-        [Required(ErrorMessage ="Email obligatoire")]
+
+
+        [EmailAddress]
         public string Email { get; set; }
+
+
         [Required(ErrorMessage = "Mot de passe obligatoire")]
         public string Password { get; set; }
 

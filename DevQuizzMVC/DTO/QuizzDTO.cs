@@ -14,8 +14,14 @@ namespace DevQuizzMVC.DTO
         public string Title { get; set; }
         public int CategoryId { get; set; }
         //Besoin ou pas??
-        //public QuizzCategory QuizzCategory { get; set; }
+        public QuizzCategory QuizzCategory { get; set; }
 
         public List<QuestionQuizz> QuestionsQuizz { get; set; }
+        
+
+        public QuizzDTO()
+        {
+            QuestionsQuizz = new List<QuestionQuizz>();
+        }
     }
 }

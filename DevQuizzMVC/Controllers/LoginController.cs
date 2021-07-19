@@ -40,6 +40,7 @@ namespace DevQuizzMVC.Controllers
                     {
                         //TODO
                         //return RedirectToAction("Accueil");
+                        Session["userNormal"] = user;
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -54,6 +55,14 @@ namespace DevQuizzMVC.Controllers
                 return View(dto);
             }
             
+        }
+
+        public ActionResult Logout()
+        {
+            //Session["userAdmin"] = null;
+            //Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("Index");
         }
 
 
