@@ -248,8 +248,11 @@
     <Content Include="Views\Shared\UserLayout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
+
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\registrationSuccess.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
