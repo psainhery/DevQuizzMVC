@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DevQuizzMVC.DTO.QuizzDTO>
+
+@{
+    ViewBag.Title = "QuizzBackList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des Quizz</h2>
+<hr />
+<br />
+
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Title)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "DoQuizz", "Quizz", new { id = item.Id }, null)
+                </td>
+            </tr>
+}
+
+    </table>
+
+</div>
