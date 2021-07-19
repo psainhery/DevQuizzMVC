@@ -14,6 +14,8 @@ namespace DevQuizzMVC.Controllers
     {
         private QuestionQuizzService service = new QuestionQuizzService();
 
+        private QuizzService quizzService = new QuizzService();
+
         // GET: Question
         public ActionResult Index(string search, int? i, string sortBy, int? id)
         {
@@ -39,6 +41,7 @@ namespace DevQuizzMVC.Controllers
                     break;
             }
 
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View (lst.ToPagedList(i ?? 1, 5));
             
         }
@@ -57,8 +60,9 @@ namespace DevQuizzMVC.Controllers
             return View(QuestionQuizzDTO);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View(new QuestionQuizzDTO());
         }
         
@@ -69,7 +73,7 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Add(questionQuizzDTO);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
             return View(questionQuizzDTO);
         }
@@ -87,21 +91,21 @@ namespace DevQuizzMVC.Controllers
             }
             else
             {
-               
+                ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
                 return View(questionQuizzDTO);
             }
-
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,QuestionText,isMultiple,QuizzId")] QuestionQuizzDTO questionQuizzDTO)
+        public ActionResult Edit([Bind(Include = "Id,QuestionText,isMultiple,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
             {
                 service.Update(questionQuizzDTO);
                 return RedirectToAction("Index");
             }
+            
             return View(questionQuizzDTO);
         }
 
@@ -116,16 +120,17 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View(questionQuizzDTO);
         }
 
-        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(QuestionQuizzDTO questionQuizzDTO, int id)
         {
             service.DeleteQuestionQuizzDTO(id);
-            return RedirectToAction("Index");
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
+            return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
         }
     }
 }
