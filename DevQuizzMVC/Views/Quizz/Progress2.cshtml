@@ -1,0 +1,47 @@
+﻿@model DevQuizzMVC.DTO.QuestionQuizzDTO
+@using DevQuizzMVC.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!doctype html>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<body>
+    <form action="/" method="post">
+        <input type="radio" value="" />
+    </form>
+
+
+
+    <h1>Questionnaire</h1>
+    <br />
+    <h2>Question @Model.NumOrder: @Model.QuestionText</h2>
+    <h3>
+        
+        @using (Html.BeginForm("Next", "Quizz", FormMethod.Post))
+        {
+            
+            foreach (var answer in Model.AnswersQuizzDTO)
+            {
+                
+                if (!Model.isMultiple)
+                {
+                    @Html.RadioButton("selectedSimpleReponse", @answer.Id)
+                    
+
+                }
+                if (Model.isMultiple)
+                {
+                    <input type="checkbox" name="selectedRep[]" value="@answer.Id" />
+                    
+                }
+                @answer.AnswerText
+                <br />
+            }
+            <input type="submit" name="Suivant" />
+        }
+    </h3>
+
+</body>
+</html>
+

@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Services;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -105,9 +106,9 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Update(questionQuizzDTO);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
-            
+            ViewBag.QuestionDTO = quizzService.getQuizzDTOById(id);
             return View(questionQuizzDTO);
         }
 
