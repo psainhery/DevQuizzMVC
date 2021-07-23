@@ -17,11 +17,17 @@ namespace DevQuizzMVC.DTO
         [Required(ErrorMessage = "Specifiez le type du question")]
         public bool isMultiple { get; set; }
 
+        public int NumOrder { get; set; }
         public int QuizzId { get; set; }
 
         //Besoin ou pas??
-        public Quizz Quizz { get; set; }
+        public virtual Quizz Quizz { get; set; }
 
-        public List<AnswerQuizz> AnswersQuizz { get; set; }
+        public virtual List<AnswerQuizzDTO> AnswersQuizzDTO { get; set; }
+
+        public QuestionQuizzDTO()
+        {
+            AnswersQuizzDTO = new List<AnswerQuizzDTO>();
+        }
     }
 }

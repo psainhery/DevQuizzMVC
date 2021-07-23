@@ -12,9 +12,9 @@ namespace DevQuizzMVC.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public int CategoryId { get; set; }
-        public QuizzCategory QuizzCategory { get; set; }
+        public virtual QuizzCategory QuizzCategory { get; set; }
 
-        public  List<QuestionQuizz> QuestionsQuizz { get; set; }
+        public virtual List<QuestionQuizz> QuestionsQuizz { get; set; }
 
         public Quizz()
         {

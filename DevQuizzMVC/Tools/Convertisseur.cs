@@ -35,11 +35,28 @@ namespace DevQuizzMVC.Tools
             dto.Title = model.Title;
             dto.CategoryId = model.CategoryId;
             dto.QuizzCategory = model.QuizzCategory;
-            dto.QuestionsQuizz = model.QuestionsQuizz;
+            foreach(QuestionQuizz question in model.QuestionsQuizz)
+            {
+                QuestionQuizzDTO qDTO = new QuestionQuizzDTO();
+                dto.QuestionsQuizzDTO.Add(QuestionQuizzDTOFromQuestionQuizz(qDTO, question));
+            }
             return dto;
         }
 
-      
+        public static Quizz QuizzFromQuizzDto(QuizzDTO dto, Quizz model)
+        {
+            model.Id = dto.Id;
+            model.Title = dto.Title;
+            model.CategoryId = dto.CategoryId;
+            model.QuizzCategory = dto.QuizzCategory;
+            foreach (QuestionQuizzDTO question in dto.QuestionsQuizzDTO)
+            {
+                QuestionQuizz q = new QuestionQuizz();
+                model.QuestionsQuizz.Add(QuestionQuizzFromQuestionQuizzDTO(question, q));
+            }
+            return model;
+        }
+
         public static QuestionQuizzDTO QuestionQuizzDTOFromQuestionQuizz(QuestionQuizzDTO dto, QuestionQuizz model)
         {
             dto.Id = model.Id;
@@ -47,7 +64,14 @@ namespace DevQuizzMVC.Tools
             dto.isMultiple = model.isMultiple;
             dto.QuizzId = model.QuizzId;
             dto.Quizz = model.Quizz;
-            dto.AnswersQuizz = model.AnswersQuizz;
+            List<AnswerQuizzDTO> lstDto = new List<AnswerQuizzDTO>();
+            foreach (AnswerQuizz reponse in model.AnswersQuizz)
+            {
+                //AnswerQuizzDTO an = new AnswerQuizzDTO();
+                lstDto.Add(AnswerQuizzDTOFromAnswerQuizz(new AnswerQuizzDTO(), reponse));
+            }
+            dto.AnswersQuizzDTO = lstDto;
+            dto.NumOrder = model.NumOrder;
             return dto;
         }
 
@@ -58,21 +82,17 @@ namespace DevQuizzMVC.Tools
             model.isMultiple = dto.isMultiple;
             model.QuizzId = dto.QuizzId;
             model.Quizz = dto.Quizz;
-            model.AnswersQuizz = dto.AnswersQuizz;
+            List<AnswerQuizz> lstDto = new List<AnswerQuizz>();
+            foreach (AnswerQuizzDTO answer in dto.AnswersQuizzDTO)
+            {
+                //AnswerQuizz aDTO = new AnswerQuizz();
+                lstDto.Add(AnswerQuizzFromAnswerQuizzDTO(answer, new AnswerQuizz()));
+            }
+            model.AnswersQuizz = lstDto;
+            model.NumOrder = dto.NumOrder;
             return model;
         }
               
-        public static Quizz QuizzFromQuizzDto(QuizzDTO dto, Quizz model)
-        {
-            model.Id = dto.Id;
-            model.Title = dto.Title;
-            model.CategoryId = dto.CategoryId;
-            model.QuizzCategory = dto.QuizzCategory;
-            model.QuestionsQuizz = dto.QuestionsQuizz;
-
-            return model;
-        }
-
         public static AnswerQuizzDTO AnswerQuizzDTOFromAnswerQuizz(AnswerQuizzDTO dto, AnswerQuizz model)
         {
             dto.Id = model.Id;

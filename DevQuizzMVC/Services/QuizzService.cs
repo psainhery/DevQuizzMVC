@@ -25,5 +25,10 @@ namespace DevQuizzMVC.Services
         {
             return repo.getQuizzDTOById(id);
         }
+
+        internal AnswerQuizzDTO FindReponse(int quizzId, int qstId, int idReponse)
+        {
+            return repo.FindReponse(quizzId, qstId, idReponse);
+        }
     }
 }

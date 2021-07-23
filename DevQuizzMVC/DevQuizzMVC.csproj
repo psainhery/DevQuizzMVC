@@ -134,13 +134,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.cs" />
+    <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.Designer.cs">
+      <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\AnswerQuizzRepository.cs" />
     <Compile Include="Repository\QuestionQuizzRepository.cs" />
     <Compile Include="Services\AnswerQuizzService.cs" />
@@ -286,7 +289,6 @@
     <Content Include="Views\Shared\UserLayout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
-
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\registrationSuccess.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
@@ -297,17 +299,18 @@
     <Content Include="Views\Quizz\Index.cshtml" />
     <Content Include="Views\Quizz\Create.cshtml" />
     <Content Include="Views\Question\Index.cshtml" />
-
     <Content Include="Views\Question\Details.cshtml" />
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Question\Edit.cshtml" />
     <Content Include="Views\Question\Delete.cshtml" />
-
     <Content Include="Views\Quizz\DoQuizz.cshtml" />
     <Content Include="Views\Answer\Index.cshtml" />
     <Content Include="Views\Answer\Edit.cshtml" />
     <Content Include="Views\Answer\Delete.cshtml" />
     <Content Include="Views\Answer\Create.cshtml" />
+    <Content Include="Views\Quizz\Progress.cshtml" />
+    <Content Include="Views\Quizz\Resultat.cshtml" />
+    <Content Include="Views\Quizz\Progress2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -331,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106301339130_AddQuizzCategoryClass.resx">
       <DependentUpon>202106301339130_AddQuizzCategoryClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.resx">
+      <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

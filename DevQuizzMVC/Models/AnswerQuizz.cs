@@ -13,7 +13,7 @@ namespace DevQuizzMVC.Models
         public string AnswerText { get; set; }
         public bool isCorrect { get; set; }
         public int QuestionQuizzId { get; set; }
-        public QuestionQuizz QuestionQuizz { get; set; }
+        public virtual QuestionQuizz QuestionQuizz { get; set; }
 
 
     }
