@@ -3,6 +3,7 @@ using DevQuizzMVC.Models;
 using DevQuizzMVC.Tools;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DevQuizzMVC.Controllers
@@ -34,6 +35,16 @@ namespace DevQuizzMVC.Controllers
             }
         }
 
+        public QuestionQuizzDTO FindQuestion(int quizId, int ordre)
+        {
+            QuestionQuizzDTO qstDto = new QuestionQuizzDTO();
+            using (MyContext context = new MyContext())
+            {
+                QuestionQuizz qst = context.QuestionQuizzes.SingleOrDefault(qst1 => qst1.QuizzId == quizId && qst1.NumOrder == ordre);
+                return Convertisseur.QuestionQuizzDTOFromQuestionQuizz(qstDto, qst);
+            }
+        }
+        
         public void Update(QuestionQuizzDTO questionQuizzDTO)
         {
             using (MyContext context = new MyContext())

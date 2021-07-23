@@ -1,6 +1,6 @@
 ﻿@model IPagedList<DevQuizzMVC.DTO.QuestionQuizzDTO>
-
 @using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -8,9 +8,6 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 
 <h2>Questions list</h2>
-
-
-
 
 <div class="container">
 
@@ -36,14 +33,14 @@
 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Index", "Answer", new { id = item.Id }, null) |
+                    @Html.ActionLink("Details", "Index", "Answer", new { id = item.Id, search = Request.QueryString["search"], sortBy = Request.QueryString["sortBy"], i = Request.QueryString["i"] }, null) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }
     </table>
 
-
+    @Html.PagedListPager(Model, i => Url.Action("Index", "Question", new { i, search = Request.QueryString["search"] }))
 </div>
 
 

@@ -25,6 +25,16 @@ namespace DevQuizzMVC.Repository
             return lst;
         }
 
+        internal AnswerQuizzDTO FindReponse(int quizzId, int qstId, int idReponse)
+        {
+            AnswerQuizzDTO repDTO = new AnswerQuizzDTO();
+            using (MyContext context = new MyContext())
+            {
+                AnswerQuizz answer = context.AnswerQuizzes.SingleOrDefault(r => r.QuestionQuizzId == qstId && r.QuestionQuizz.QuizzId == quizzId && r.Id == idReponse);
+                return Convertisseur.AnswerQuizzDTOFromAnswerQuizz(repDTO, answer);
+            }
+        }
+
         public QuizzDTO getQuizzDTOById(int? id)
         {
             QuizzDTO dto = new QuizzDTO();

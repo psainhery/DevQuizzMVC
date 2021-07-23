@@ -14,26 +14,29 @@
 <form>
     @foreach (var item in Model)
     {
-        <p class="question-quizz"> @Html.DisplayFor(modelItem => item.QuestionText)</p>
-        <div>
-            @{answerList = service.GetAllAnswers().Where(a => a.QuestionQuizzId == item.Id).ToList();
-                foreach (var answer in answerList)
-                {
-                    if (item.isMultiple)
+        <fieldset id="@item.QuestionText">
+            <p class="question-quizz"> @Html.DisplayFor(modelItem => item.QuestionText)</p>
+            <div>
+                @{answerList = service.GetAllAnswers().Where(a => a.QuestionQuizzId == item.Id).ToList();
+                    foreach (var answer in answerList)
                     {
-                        <input type="checkbox" id=@answer.AnswerText
-                               name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
-                        <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
-                    }
-                    else
-                    {
-                        <input type="radio" id=@answer.AnswerText
-                               name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
-                        <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
+                        if (item.isMultiple)
+                        {
+                            <input type="checkbox" id=@answer.AnswerText
+                                   name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
+                            <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
+                        }
+                        else
+                        {
+                            <input type="radio" id=@answer.AnswerText
+                                   name="answer" value=@Html.DisplayFor(modelItem => answer.AnswerText)>
+                            <label class="radio-vertical" for=@answer.AnswerText>@Html.DisplayFor(modelItem => answer.AnswerText)</label><br />
+                        }
                     }
                 }
-            }
-        </div>
+            </div>
+        </fieldset>
+
     }
     <div>
         <button type="submit">Envoyer</button>

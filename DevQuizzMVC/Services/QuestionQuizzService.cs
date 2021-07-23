@@ -32,5 +32,10 @@ namespace DevQuizzMVC.Controllers
         {
             repo.DeleteQuestionQuizzDTO(id);
         }
+
+        internal QuestionQuizzDTO FindQuestion(int quizId, int ordre)
+        {
+            return repo.FindQuestion(quizId, ordre);
+        }
     }
 }

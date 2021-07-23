@@ -14,8 +14,10 @@ namespace DevQuizzMVC.Models
         public string QuestionText { get; set; }
         public bool isMultiple { get; set; }
         public int QuizzId { get; set; }
-        public Quizz Quizz { get; set; }
-        public List<AnswerQuizz> AnswersQuizz { get; set; }
+
+        public int NumOrder { get; set; }
+        public virtual Quizz Quizz { get; set; }
+        public virtual List<AnswerQuizz> AnswersQuizz { get; set; }
         public QuestionQuizz()
         {
             AnswersQuizz = new List<AnswerQuizz>();

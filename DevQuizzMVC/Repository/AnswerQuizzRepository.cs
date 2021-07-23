@@ -13,12 +13,13 @@ namespace DevQuizzMVC.Repository
         public List<AnswerQuizzDTO> GetAllAnswers()
         {
             List<AnswerQuizzDTO> lst = new List<AnswerQuizzDTO>();
+            //AnswerQuizzDTO dto = new AnswerQuizzDTO();
             using (MyContext context = new MyContext())
             {
                 List<AnswerQuizz> lstModel = context.AnswerQuizzes.ToList();
                 foreach (AnswerQuizz model in lstModel)
                 {
-                    lst.Add(Convertisseur.AnswerQuizzDTOFromAnswerQuizz(new AnswerQuizzDTO(), model));
+                    lst.Add(Convertisseur.AnswerQuizzDTOFromAnswerQuizz(/*dto*/new AnswerQuizzDTO(), model));
                 }
             }
             return lst;
@@ -36,7 +37,8 @@ namespace DevQuizzMVC.Repository
 
         public void Add(AnswerQuizzDTO answerQuizzDTO)
         {
-            AnswerQuizz a = Convertisseur.AnswerQuizzFromAnswerQuizzDTO(answerQuizzDTO, new AnswerQuizz());
+            AnswerQuizz answer = new AnswerQuizz();
+            AnswerQuizz a = Convertisseur.AnswerQuizzFromAnswerQuizzDTO(answerQuizzDTO, answer);
             using (MyContext context = new MyContext())
             {
                 context.AnswerQuizzes.Add(a);

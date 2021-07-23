@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevQuizzMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +15,12 @@ namespace DevQuizzMVC.DTO
         [Required(ErrorMessage = "Le type de réponse est requis")]
         public bool isCorrect { get; set; }
         public int QuestionQuizzId { get; set; }
+
+        /*public static explicit operator AnswerQuizzDTO(List<AnswerQuizz> v)
+        {
+            throw new NotImplementedException();
+        }*/
         //Besoin ou pas??
-        //public QuestionQuizz QuestionQuizz { get; set; }
+        public  virtual QuestionQuizz QuestionQuizz { get; set; }
     }
 }

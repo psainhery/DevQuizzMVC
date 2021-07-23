@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Models;
 using DevQuizzMVC.Services;
 using PagedList;
 using System;
@@ -14,6 +15,8 @@ namespace DevQuizzMVC.Controllers
     {
         private QuizzService service = new QuizzService();
         private QuestionQuizzService questionService = new QuestionQuizzService();
+        private AnswerQuizzService answerService = new AnswerQuizzService();
+        
 
         public ActionResult Index(string search, int? i, string sortBy)
         {
@@ -43,6 +46,7 @@ namespace DevQuizzMVC.Controllers
 
         public ActionResult Create()
         {
+             
             return View(new QuizzDTO());
         }
         // POST: Utilisateur/Create
@@ -84,6 +88,7 @@ namespace DevQuizzMVC.Controllers
             else
                 lst = questionService.GetAllQuestions().Where(q => q.QuizzId.Equals(quizzDTO.Id)).ToList();
 
+
             switch (sortBy)
             {
                 case "nameAsc":
@@ -98,7 +103,75 @@ namespace DevQuizzMVC.Controllers
                     break;
             }
 
+
             return View(lst.ToPagedList(i ?? 1, 5));
+        }
+
+        public ActionResult Demarrer(int id)
+        {
+            Session["score"] = 0;
+            Session["quizzId"] = id;
+            Session["ordre"] = 1;
+
+            QuestionQuizzDTO question = questionService.FindQuestion(id, 1);
+            return View("Progress2", question);
+        }
+
+        [HttpPost]
+        public ActionResult Next(FormCollection form)
+        {
+            int score = Convert.ToInt32(Session["score"]);
+            int quizzId = Convert.ToInt32(Session["quizzId"]);
+            int ordre = Convert.ToInt32(Session["ordre"]);
+            QuizzDTO quizzDto = service.getQuizzDTOById(quizzId);
+
+            QuestionQuizzDTO qst = quizzDto.QuestionsQuizzDTO[ordre - 1];
+            if (!qst.isMultiple)
+            {
+                int idReponse = Convert.ToInt32(form.Get("selectedSimpleReponse"));
+                if (service.FindReponse(quizzId, qst.Id, idReponse).isCorrect)
+                {
+                    score++;
+                    Session["score"] = score;
+                }
+                else
+                {
+                    score--;
+                    Session["score"] = score;
+                }
+            }
+            else
+            {
+                string[] reponses = form.GetValues("selectedRep[]");
+                bool[] tabRep = new bool[reponses.Length];
+                for (int i = 0; i < reponses.Length; i++)
+                {
+                    tabRep[i] = service.FindReponse(quizzId, qst.Id, Convert.ToInt32(reponses[i])).isCorrect;
+                }
+                bool exist = tabRep.Contains(false);
+                if(exist == true)
+                {
+                    score--;
+                    Session["score"] = score;
+                }
+                else
+                {
+                    score++;
+                    Session["score"] = score;
+                }
+            }
+            if(ordre < quizzDto.QuestionsQuizzDTO.Count)
+            {
+                ordre++;
+                Session["ordre"] = ordre;
+                QuestionQuizzDTO question = questionService.FindQuestion(quizzId, ordre);
+                return View("Progress2", question);
+            }
+            else
+            {
+                return View("Resultat");
+            }
+
         }
     }
 }

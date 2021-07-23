@@ -106,9 +106,9 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Update(questionQuizzDTO);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
-            
+            ViewBag.QuestionDTO = quizzService.getQuizzDTOById(id);
             return View(questionQuizzDTO);
         }
 

@@ -1,0 +1,42 @@
+﻿@model DevQuizzMVC.DTO.QuestionQuizzDTO
+@using DevQuizzMVC.Models
+@{
+    ViewBag.Title = "Progress";
+    Layout = null;
+}
+<!doctype html>
+<body>
+    <form action="/" method="post">
+        <input type="radio" value="" />
+    </form>
+
+
+    
+        <h1>Questionnaire</h1>
+        <br />
+        <h2>Question @Model.NumOrder: @Model.QuestionText</h2>
+        <h3>
+            @using (Html.BeginForm("Next", "Quizz", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                foreach (var answer in Model.AnswersQuizzDTO)
+                {
+                    if (!Model.isMultiple)
+                    {
+                        @*@Html.RadioButton("selectedSimpleReponse", @answer.Id)*@
+                        <input type="radio" name="selectedSimpleReponse" value="" />
+                    }
+                    if (Model.isMultiple)
+                    {
+                        <input type="checkbox" name="selectedRep[]" value="@answer.Id" />
+                    }
+                    @answer.AnswerText
+                    <br />
+                }
+                <input type="submit" name="Suivant" />
+            }
+        </h3>
+    
+</body>
+</html>
+
