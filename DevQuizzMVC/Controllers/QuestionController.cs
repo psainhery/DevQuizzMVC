@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Services;
 using PagedList;
 using System;
 using System.Collections.Generic;
