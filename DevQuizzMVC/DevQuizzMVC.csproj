@@ -144,6 +144,10 @@
     <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.Designer.cs">
       <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107261336437_changementCascadeOnDelete.cs" />
+    <Compile Include="Migrations\202107261336437_changementCascadeOnDelete.Designer.cs">
+      <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\AnswerQuizzRepository.cs" />
     <Compile Include="Repository\QuestionQuizzRepository.cs" />
     <Compile Include="Services\AnswerQuizzService.cs" />
@@ -347,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.resx">
       <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107261336437_changementCascadeOnDelete.resx">
+      <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
