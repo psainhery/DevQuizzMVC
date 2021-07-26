@@ -314,6 +314,7 @@
     <Content Include="Views\Quizz\Resultat.cshtml" />
     <Content Include="Views\Quizz\Progress2.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Quizz\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
