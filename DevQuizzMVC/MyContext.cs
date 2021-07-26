@@ -32,20 +32,20 @@ namespace DevQuizzMVC
                 .HasRequired(q => q.Quizz)
                 .WithMany(qst => qst.QuestionsQuizz)
                 .HasForeignKey(q => q.QuizzId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
 
             modelBuilder.Entity<AnswerQuizz>()
                 .HasRequired(q => q.QuestionQuizz)
                 .WithMany(a => a.AnswersQuizz)
                 .HasForeignKey(q => q.QuestionQuizzId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Quizz>()
                 .HasRequired(q => q.QuizzCategory)
                 .WithMany(a => a.Quizzs)
                 .HasForeignKey(q => q.CategoryId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             base.OnModelCreating(modelBuilder);
         }
