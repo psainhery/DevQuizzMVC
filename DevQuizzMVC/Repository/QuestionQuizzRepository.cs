@@ -70,7 +70,7 @@ namespace DevQuizzMVC.Controllers
             QuestionQuizzDTO dto = new QuestionQuizzDTO();
             using (MyContext context = new MyContext())
             {
-                QuestionQuizz model = context.QuestionQuizzes.Find(id);
+                QuestionQuizz model = context.QuestionQuizzes.Find(id); //model = null 
                 if(model != null)
                 {
                     dto = Convertisseur.QuestionQuizzDTOFromQuestionQuizz(dto, model);

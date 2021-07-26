@@ -208,6 +208,8 @@
     <Content Include="Content\cssLogin\main.css" />
     <Content Include="Content\cssLogin\select2.min.css" />
     <Content Include="Content\cssLogin\util.css" />
+    <Content Include="Content\images\AVT_Bill-Gates_2213.jpg" />
+    <Content Include="Content\images\AVT_Scott-Guthrie_2213.jpg" />
     <Content Include="Content\images\backend.png" />
     <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
@@ -304,6 +306,13 @@
     <Content Include="Views\Quizz\Progress.cshtml" />
     <Content Include="Views\Quizz\Resultat.cshtml" />
     <Content Include="Views\Quizz\Progress2.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

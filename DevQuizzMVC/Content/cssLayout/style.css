@@ -1331,10 +1331,10 @@ h1, h2, h3, h4, h5, h6, figure {
   /*-ms-border-radius: 4px;*/
   border-radius: 4px;
 }
-.gototop a i {
+.gototop a svg {
   height: 50px;
   display: table-cell;
-  vertical-align: middle;
+  margin : auto;
 }
 .gototop a:hover, .gototop a:active, .gototop a:focus {
   text-decoration: none;
@@ -1657,6 +1657,11 @@ h1, h2, h3, h4, h5, h6, figure {
     color:black;
     font-weight:500;
     font-size:large;
+}
+
+.row-category{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
