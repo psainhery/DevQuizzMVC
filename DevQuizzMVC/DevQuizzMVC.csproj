@@ -211,8 +211,17 @@
     <Content Include="Content\images\backend.png" />
     <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
+    <Content Include="Content\images\Bootstrap_logo.svg" />
+    <Content Include="Content\images\cSharp.png" />
+    <Content Include="Content\images\css.png" />
     <Content Include="Content\images\DevQuizz_small.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\html5.png" />
+    <Content Include="Content\images\imgBack.jpg" />
+    <Content Include="Content\images\imgDoc.jpg" />
+    <Content Include="Content\images\imgFront.jpg" />
+    <Content Include="Content\images\net.svg" />
+    <Content Include="Content\images\t-sql.png" />
     <Content Include="Content\jsAdminLayout\adminlte.min.js" />
     <Content Include="Content\jsAdminLayout\bootstrap.bundle.min.js" />
     <Content Include="Content\jsAdminLayout\demo.js" />
