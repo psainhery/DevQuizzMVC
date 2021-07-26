@@ -173,5 +173,60 @@ namespace DevQuizzMVC.Controllers
             }
 
         }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            QuizzDTO QuizDTO = service.getQuizzDTOById(id);
+            if (QuizDTO == null)
+            {
+                return HttpNotFound();
+            }
+            return View(QuizDTO);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO QuizDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                service.Update(QuizDTO);
+                return RedirectToAction("index");
+            }
+            return View(QuizDTO);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            //using with ressources
+
+            using (MyContext context = new MyContext())
+            {
+                Quizz c = context.Quizzes.Find(id);
+
+                if (c != null)
+                {
+                    context.Quizzes.Remove(c);
+
+                    context.SaveChanges();
+
+                }
+                else
+                {
+                    Console.WriteLine("erreur ");
+                }
+                return RedirectToAction("index");
+
+            }
+
+
+
+        }
+
+
     }
 }

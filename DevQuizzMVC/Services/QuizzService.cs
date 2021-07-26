@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Models;
 using DevQuizzMVC.Repository;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,26 @@ namespace DevQuizzMVC.Services
         internal AnswerQuizzDTO FindReponse(int quizzId, int qstId, int idReponse)
         {
             return repo.FindReponse(quizzId, qstId, idReponse);
+        }
+
+        public void Update(QuizzDTO c)
+        {
+            using (MyContext context = new MyContext())
+            {
+
+                Quizz QuizDB = context.Quizzes.Find(c.Id); //
+                if (QuizDB != null)
+                {
+                    QuizDB.Title = c.Title;
+                    /*QuizDB. = c.Email;
+                    QuizDB.Password = c.Password;
+                    */
+                    //Appel des setters => etat = Modified
+                    context.SaveChanges();
+                }
+
+
+            }
         }
     }
 }
