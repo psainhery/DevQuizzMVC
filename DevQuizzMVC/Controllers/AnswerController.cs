@@ -54,7 +54,7 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.QuestionDTO = answerQuizzDTO.QuestionQuizzId;
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
             return View(answerQuizzDTO);            
 
         }
@@ -70,11 +70,8 @@ namespace DevQuizzMVC.Controllers
                 ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
-            else
-            {
-                return HttpNotFound();
-            }
-            
+            return View(answerQuizzDTO);
+
         }
 
         
@@ -106,8 +103,7 @@ namespace DevQuizzMVC.Controllers
         
         public ActionResult Create(int? id)
         {
-            AnswerQuizzDTO answerQuizzDTO = service.getAnswerDTOById(id);
-            ViewBag.QuestionDTO = answerQuizzDTO.QuestionQuizzId;
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
             return View(new AnswerQuizzDTO());
         }
 
@@ -122,7 +118,7 @@ namespace DevQuizzMVC.Controllers
                 service.Add(answerQuizzDTO);
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
-            ViewBag.QuestionDTOId =; answerQuizzDTO.QuestionQuizzId
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
             return View(answerQuizzDTO);
         }
     }
