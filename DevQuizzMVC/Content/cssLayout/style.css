@@ -1158,10 +1158,11 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
   height: 300px;
 }
-.gallery:hover {
+
+.gallery:hover {/*
   -webkit-box-shadow: inset 0px 0px 124px 11px rgba(0, 0, 0, 0.74);
   -moz-box-shadow: inset 0px 0px 124px 11px rgba(0, 0, 0, 0.74);
-  box-shadow: inset 0px 0px 124px 11px rgba(0, 0, 0, 0.74);
+  box-shadow: inset 0px 0px 124px 11px rgba(0, 0, 0, 0.74);*/
 }
 
 #fh5co-footer {
@@ -1696,3 +1697,19 @@ h1, h2, h3, h4, h5, h6, figure {
 .imgIconCss {
     width: 45px;
 }
+
+.socialMedia_icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.socialMedia_icon li{
+    list-style : none;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+    .socialMedia_icon a {
+        color: #fff;
+    }

@@ -215,6 +215,7 @@
     <Content Include="Content\images\AVT_Bill-Gates_2213.jpg" />
     <Content Include="Content\images\AVT_Scott-Guthrie_2213.jpg" />
     <Content Include="Content\images\backend.png" />
+    <Content Include="Content\images\backend_resized.png" />
     <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\images\Bootstrap_logo.svg" />
