@@ -71,13 +71,15 @@ namespace DevQuizzMVC.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO)
+
+        public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
             {
                 service.Add(questionQuizzDTO);
                 return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View(questionQuizzDTO);
         }
 
@@ -94,7 +96,7 @@ namespace DevQuizzMVC.Controllers
             }
             else
             {
-                ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
+                ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
                 return View(questionQuizzDTO);
             }
         }
@@ -108,7 +110,7 @@ namespace DevQuizzMVC.Controllers
                 service.Update(questionQuizzDTO);
                 return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
-            ViewBag.QuestionDTO = quizzService.getQuizzDTOById(id);
+            ViewBag.QuestionDTOId =questionQuizzDTO.QuizzId;
             return View(questionQuizzDTO);
         }
 
@@ -123,7 +125,7 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
+            ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
             return View(questionQuizzDTO);
         }
 
@@ -132,7 +134,7 @@ namespace DevQuizzMVC.Controllers
         public ActionResult DeleteConfirmed(QuestionQuizzDTO questionQuizzDTO, int id)
         {
             service.DeleteQuestionQuizzDTO(id);
-            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
+            ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
             return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
         }
     }

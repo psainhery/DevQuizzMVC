@@ -80,6 +80,7 @@ namespace DevQuizzMVC.Tools
             model.Id = dto.Id;
             model.QuestionText = dto.QuestionText;
             model.isMultiple = dto.isMultiple;
+            model.NumOrder = dto.NumOrder;
             model.QuizzId = dto.QuizzId;
             model.Quizz = dto.Quizz;
             List<AnswerQuizz> lstDto = new List<AnswerQuizz>();
