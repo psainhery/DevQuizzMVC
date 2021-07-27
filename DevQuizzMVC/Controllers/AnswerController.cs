@@ -68,6 +68,7 @@ namespace DevQuizzMVC.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
@@ -115,6 +116,7 @@ namespace DevQuizzMVC.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             //rentrer automatiquement la valeur QuestionId
