@@ -60,33 +60,6 @@ namespace DevQuizzMVC.Controllers
             return View(userDTO);
         }
 
-    
-        public ActionResult Delete(int id)
-        {
-            //using with ressources
-
-            using (MyContext context = new MyContext())
-            {
-                User c = context.Users.Find(id);
-               
-                if (c != null)
-                {
-                    context.Users.Remove(c);
-
-                    context.SaveChanges();
-                   
-                }
-                else
-                {
-                    Console.WriteLine("erreur ");
-                }
-                return RedirectToAction("index");
-
-            } 
-
-
-
-        }
         
         public ActionResult Details(int? id)
         {
@@ -128,8 +101,29 @@ namespace DevQuizzMVC.Controllers
             }
             return View(userDTO);
         }
-        
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserDTO userDTO = service.getUserDTOById(id);
+            if (userDTO == null)
+            {
+                return HttpNotFound();
+            }
+            return View(userDTO);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            UserDTO userDTO = service.getUserDTOById(id);
+            service.DeleteUserDTO(id);
+            return RedirectToAction("Index");
+        }
 
     }
 }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Edit a question</h2>
+<h2> Modifier une question</h2>
 
 
 @using (Html.BeginForm())
@@ -45,14 +45,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Modifier" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.QuizzDTOId })
+    @Html.ActionLink("Retour", "Index", new { id = ViewBag.QuizzDTOId })
 </div>
 
 @*@section Scripts {
