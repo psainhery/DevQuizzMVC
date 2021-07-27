@@ -340,6 +340,7 @@
     <Content Include="Views\Login\Reinitialisation.cshtml" />
     <Content Include="Views\Login\UserInconnu.cshtml" />
     <Content Include="Views\Quizz\Edit.cshtml" />
+    <Content Include="Views\Quizz\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

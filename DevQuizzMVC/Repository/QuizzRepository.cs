@@ -49,6 +49,16 @@ namespace DevQuizzMVC.Repository
             return dto;
         }
 
+        internal void DeleteQuizzDTO(int id)
+        {
+            using (MyContext context = new MyContext())
+            {
+                Quizz q = context.Quizzes.Find(id);
+                context.Quizzes.Remove(q);
+                context.SaveChanges();
+            }
+        }
+
         public void Add(QuizzDTO quizzDTO)
         {
             Quizz q = Convertisseur.QuizzFromQuizzDto(quizzDTO, new Quizz());

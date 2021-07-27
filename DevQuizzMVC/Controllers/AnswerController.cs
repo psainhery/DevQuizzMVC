@@ -39,7 +39,6 @@ namespace DevQuizzMVC.Controllers
                     break;
             }
             ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
-            //ViewBag.AnswerDTO = service.getAnswerDTOById(id);
             return View(lst.ToPagedList(i ?? 1, 5));
 
         }
