@@ -13,9 +13,6 @@
 </div>
 
 <div class="container">
-    <div>
-        @Html.ActionLink("Ajouter une réponse", "Create", new { id = ViewBag.QuestionDTO.Id })
-    </div>
     <table class="table table-striped table-hover">
         @foreach (var item in Model)
         {
