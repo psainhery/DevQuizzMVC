@@ -46,7 +46,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.QuizzId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.QuizzId, new { htmlAttributes = new { @Value = ViewBag.QuizzDTOId, @type = "hidden" } })
+            @Html.EditorFor(model => model.QuizzId, new { htmlAttributes = new { @Value = ViewBag.QuizzDTO.Id, @type = "hidden" } })
             @Html.ValidationMessageFor(model => model.QuizzId, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -62,7 +62,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.QuizzDTOId })
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.QuizzDTO.Id })
 </div>
 
 @*@section Scripts {

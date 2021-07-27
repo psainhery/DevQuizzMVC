@@ -65,21 +65,20 @@ namespace DevQuizzMVC.Controllers
 
         public ActionResult Create(int? id)
         {
-            QuestionQuizzDTO questionQuizzDTO = service.GetQuestionQuizzDTOById(id);
-            ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View(new QuestionQuizzDTO());
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO)
+        public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
             {
                 service.Add(questionQuizzDTO);
                 return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
             }
-            ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
+            ViewBag.QuizzDTO = quizzService.getQuizzDTOById(id);
             return View(questionQuizzDTO);
         }
 
