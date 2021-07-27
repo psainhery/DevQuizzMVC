@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model DevQuizzMVC.DTO.UserDTO
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
                     </div>
                     @Html.ValidationMessageFor(m => m.Email)
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="Email" placeholder="Email">
+                        <input class="input100" type="text" name="Email" placeholder="Adresse mail">
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
                     @Html.ValidationMessageFor(m => m.Password)

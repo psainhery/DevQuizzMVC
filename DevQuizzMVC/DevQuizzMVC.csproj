@@ -144,6 +144,10 @@
     <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.Designer.cs">
       <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107261336437_changementCascadeOnDelete.cs" />
+    <Compile Include="Migrations\202107261336437_changementCascadeOnDelete.Designer.cs">
+      <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\AnswerQuizzRepository.cs" />
     <Compile Include="Repository\QuestionQuizzRepository.cs" />
     <Compile Include="Services\AnswerQuizzService.cs" />
@@ -213,8 +217,17 @@
     <Content Include="Content\images\backend.png" />
     <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
+    <Content Include="Content\images\Bootstrap_logo.svg" />
+    <Content Include="Content\images\cSharp.png" />
+    <Content Include="Content\images\css.png" />
     <Content Include="Content\images\DevQuizz_small.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\html5.png" />
+    <Content Include="Content\images\imgBack.jpg" />
+    <Content Include="Content\images\imgDoc.jpg" />
+    <Content Include="Content\images\imgFront.jpg" />
+    <Content Include="Content\images\net.svg" />
+    <Content Include="Content\images\t-sql.png" />
     <Content Include="Content\jsAdminLayout\adminlte.min.js" />
     <Content Include="Content\jsAdminLayout\bootstrap.bundle.min.js" />
     <Content Include="Content\jsAdminLayout\demo.js" />
@@ -243,6 +256,9 @@
     <Content Include="Content\jsLogin\popper.js" />
     <Content Include="Content\jsLogin\select2.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\ubuntu\UFL.txt" />
@@ -260,6 +276,18 @@
     <Content Include="fonts\ubuntu\Ubuntu-Regular.ttf" />
     <Content Include="Content\cssLayout\style.css.map" />
     <Content Include="Content\cssLayout\bootstrap.css.map" />
+    <Content Include="Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -307,6 +335,11 @@
     <Content Include="Views\Quizz\Resultat.cshtml" />
     <Content Include="Views\Quizz\Progress2.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Login\ResetPassword.cshtml" />
+    <Content Include="Views\Login\Confirmation.cshtml" />
+    <Content Include="Views\Login\Reinitialisation.cshtml" />
+    <Content Include="Views\Login\UserInconnu.cshtml" />
+    <Content Include="Views\Quizz\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -339,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.resx">
       <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107261336437_changementCascadeOnDelete.resx">
+      <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -71,6 +71,7 @@ namespace DevQuizzMVC.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
         {
             if (ModelState.IsValid)

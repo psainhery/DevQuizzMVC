@@ -7,12 +7,12 @@
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 
-<h2>Questions list</h2>
+<h2>Liste des questions</h2>
 
 <div class="container">
 
     <p>
-        @Html.ActionLink("Add a question", "Create", new { id = ViewBag.QuizzDTO.Id })
+        @Html.ActionLink("Ajouter une question", "Create", new { id = ViewBag.QuizzDTO.Id })
     </p>
 
 
@@ -32,15 +32,17 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Index", "Answer", new { id = item.Id, search = Request.QueryString["search"], sortBy = Request.QueryString["sortBy"], i = Request.QueryString["i"] }, null) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Liste des réponses", "Index", "Answer", new { id = item.Id, search = Request.QueryString["search"], sortBy = Request.QueryString["sortBy"], i = Request.QueryString["i"] }, null) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }
     </table>
 
     @Html.PagedListPager(Model, i => Url.Action("Index", "Question", new { i, search = Request.QueryString["search"] }))
+<br />
+<div>@Html.ActionLink("Retour aux quizz","Index","Quizz")</div>
 </div>
 
 
