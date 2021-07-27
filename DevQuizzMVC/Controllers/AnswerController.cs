@@ -39,7 +39,6 @@ namespace DevQuizzMVC.Controllers
                     break;
             }
             ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
-
             return View(lst.ToPagedList(i ?? 1, 5));
 
         }
@@ -55,13 +54,8 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
-            else
-            {
-                ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
-                return View(answerQuizzDTO);
-
-            }
-            
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
+            return View(answerQuizzDTO);            
 
         }
 
@@ -74,10 +68,11 @@ namespace DevQuizzMVC.Controllers
             if (ModelState.IsValid)
             {
                 service.Update(answerQuizzDTO);
+                ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
-            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(answerQuizzDTO);
+
         }
 
         
@@ -92,21 +87,21 @@ namespace DevQuizzMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
             return View(answerQuizzDTO);
         }
 
         
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id) //id de la réponse
         {
             AnswerQuizzDTO answerQuizzDTO = service.getAnswerDTOById(id);
             service.DeleteAnswerDTO(id);
-            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
+            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
             return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
         }
-
+        
         public ActionResult Create(int? id)
         {
             ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);

@@ -27,15 +27,15 @@ namespace DevQuizzMVC.Controllers
              * utilisation du QuizzDTO
              */
             List<QuizzDTO> lst = new List<QuizzDTO>();
-            lst = service.getAllQuizzs();
-            
+            lst = service.getAllQuizzs().Where(q => q.CategoryId.Equals(1)).ToList();
+
             return View(lst);
         }
 
         public ActionResult QuizzBackList()
         {
             List<QuizzDTO> lst = new List<QuizzDTO>();
-            lst = service.getAllQuizzs();
+            lst = service.getAllQuizzs().Where(q => q.CategoryId.Equals(2)).ToList();
 
             return View(lst);
         }
