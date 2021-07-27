@@ -8,11 +8,11 @@
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <h2>Liste des réponses</h2>
-<div>
-    @Html.ActionLink("Ajouter une réponse", "Create", new { id = ViewBag.QuestionDTO.Id })
-</div>
 
 <div class="container">
+    <div>
+        @Html.ActionLink("Ajouter une réponse", "Create", new { id = ViewBag.QuestionDTO.Id })
+    </div>
     <table class="table table-striped table-hover">
         @foreach (var item in Model)
         {
