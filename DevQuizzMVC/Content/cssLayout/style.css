@@ -412,6 +412,16 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #e8e8e8;
 }
 
+.divRowIcon{
+    padding-left: 7%;
+}
+.bootstrapDiv{
+    padding-top: 5px;
+}
+.iconDiv{
+    max-width: 330px;
+}
+
 #fh5co-course-categories,
 #fh5co-counter,
 #fh5co-course,
@@ -423,9 +433,19 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-staff,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
-  clear: both;
+    padding: 7em 0;
+    clear: both;
 }
+
+@media screen and (max-width: 767px) {
+    .divRowIcon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 @media screen and (max-width: 768px) {
   #fh5co-course-categories,
   #fh5co-counter,
@@ -441,6 +461,8 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 3em 0;
   }
 }
+
+
 
 .services {
   width: 95%;
@@ -1660,3 +1682,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/*css William home page*/
+
+.imgIcon {
+    width: 60px;
+}
+.imgIconCss {
+    width: 45px;
+}
