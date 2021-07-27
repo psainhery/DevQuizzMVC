@@ -39,9 +39,9 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Index", "Question", new { id = item.Id }, null) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Liste des questions", "Index", "Question", new { id = item.Id }, null) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

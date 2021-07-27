@@ -241,6 +241,9 @@
     <Content Include="Content\jsLogin\popper.js" />
     <Content Include="Content\jsLogin\select2.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\ubuntu\UFL.txt" />
@@ -258,6 +261,18 @@
     <Content Include="fonts\ubuntu\Ubuntu-Regular.ttf" />
     <Content Include="Content\cssLayout\style.css.map" />
     <Content Include="Content\cssLayout\bootstrap.css.map" />
+    <Content Include="Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -305,6 +320,10 @@
     <Content Include="Views\Quizz\Resultat.cshtml" />
     <Content Include="Views\Quizz\Progress2.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Login\ResetPassword.cshtml" />
+    <Content Include="Views\Login\Confirmation.cshtml" />
+    <Content Include="Views\Login\Reinitialisation.cshtml" />
+    <Content Include="Views\Login\UserInconnu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
