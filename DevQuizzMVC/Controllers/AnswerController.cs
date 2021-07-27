@@ -62,6 +62,7 @@ namespace DevQuizzMVC.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             if (ModelState.IsValid)
@@ -103,13 +104,14 @@ namespace DevQuizzMVC.Controllers
         
         public ActionResult Create(int? id)
         {
-            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(new AnswerQuizzDTO());
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "Id,AnswerText,isCorrect,QuestionQuizzId")] AnswerQuizzDTO answerQuizzDTO, int? id)
         {
             //rentrer automatiquement la valeur QuestionId
@@ -118,7 +120,7 @@ namespace DevQuizzMVC.Controllers
                 service.Add(answerQuizzDTO);
                 return RedirectToAction("Index", new { id = answerQuizzDTO.QuestionQuizzId });
             }
-            ViewBag.QuestionDTOId = answerQuizzDTO.QuestionQuizzId;
+            ViewBag.QuestionDTO = questionService.GetQuestionQuizzDTOById(id);
             return View(answerQuizzDTO);
         }
     }
