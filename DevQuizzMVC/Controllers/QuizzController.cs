@@ -4,6 +4,7 @@ using DevQuizzMVC.Services;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -54,10 +55,13 @@ namespace DevQuizzMVC.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO quizzDTO)
+        public ActionResult Create([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO quizzDTO, HttpPostedFileBase Picture)
         {
             if (ModelState.IsValid)
             {
+                quizzDTO.Picture = quizzDTO.Title + Path.GetExtension(Picture.FileName);
+                Picture.SaveAs(Server.MapPath("~/Content/picturesQuizz/") + quizzDTO.Picture);
+
                 service.Add(quizzDTO);
                 return RedirectToAction("Index");
             }

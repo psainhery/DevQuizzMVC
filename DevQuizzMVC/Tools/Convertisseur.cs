@@ -35,7 +35,8 @@ namespace DevQuizzMVC.Tools
             dto.Title = model.Title;
             dto.CategoryId = model.CategoryId;
             dto.QuizzCategory = model.QuizzCategory;
-            foreach(QuestionQuizz question in model.QuestionsQuizz)
+            dto.Picture = model.Picture;
+            foreach (QuestionQuizz question in model.QuestionsQuizz)
             {
                 QuestionQuizzDTO qDTO = new QuestionQuizzDTO();
                 dto.QuestionsQuizzDTO.Add(QuestionQuizzDTOFromQuestionQuizz(qDTO, question));
@@ -49,6 +50,7 @@ namespace DevQuizzMVC.Tools
             model.Title = dto.Title;
             model.CategoryId = dto.CategoryId;
             model.QuizzCategory = dto.QuizzCategory;
+            model.Picture = dto.Picture;
             foreach (QuestionQuizzDTO question in dto.QuestionsQuizzDTO)
             {
                 QuestionQuizz q = new QuestionQuizz();
