@@ -13,6 +13,7 @@ namespace DevQuizzMVC.DTO
         [Required(ErrorMessage = "Titre obligatoire")]
         public string Title { get; set; }
         public int CategoryId { get; set; }
+        public string Picture { get; set; }
         //Besoin ou pas??
         public  virtual QuizzCategory QuizzCategory { get; set; }
 
