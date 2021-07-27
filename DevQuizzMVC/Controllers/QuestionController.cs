@@ -131,8 +131,9 @@ namespace DevQuizzMVC.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(QuestionQuizzDTO questionQuizzDTO, int id)
+        public ActionResult DeleteConfirmed( int id)
         {
+            QuestionQuizzDTO questionQuizzDTO = service.GetQuestionQuizzDTOById(id);
             service.DeleteQuestionQuizzDTO(id);
             ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
             return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
