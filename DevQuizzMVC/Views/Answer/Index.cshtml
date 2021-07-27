@@ -39,5 +39,5 @@
     </table>
     @Html.PagedListPager(Model, i => Url.Action("Index", "Answer", new { i, search = Request.QueryString["search"] }))
 
-    <div>@Html.ActionLink("Retour", "Index", "Question", new { search = Request.QueryString["search"], i = Request.QueryString["i"], sortBy = Request.QueryString["sortBy"], id = @id }, null)</div>
+    <div>@Html.ActionLink("Retour", "Index", "Question", new { search = Request.QueryString["search"], i = Request.QueryString["i"], sortBy = Request.QueryString["sortBy"], id = ViewBag.QuestionDTO.QuizzId }, null)</div>
 </div>
