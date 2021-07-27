@@ -116,7 +116,7 @@ namespace DevQuizzMVC.Controllers
             Session["score"] = 0;
             Session["quizzId"] = id;
             Session["ordre"] = 1;
-
+            ViewBag.QuizzDTO = service.getQuizzDTOById(id);
             QuestionQuizzDTO question = questionService.FindQuestion(id, 1);
             return View("Progress2", question);
         }
@@ -128,7 +128,7 @@ namespace DevQuizzMVC.Controllers
             int quizzId = Convert.ToInt32(Session["quizzId"]);
             int ordre = Convert.ToInt32(Session["ordre"]);
             QuizzDTO quizzDto = service.getQuizzDTOById(quizzId);
-
+            ViewBag.QuizzDTO = quizzDto;
             QuestionQuizzDTO qst = quizzDto.QuestionsQuizzDTO[ordre - 1];
             if (!qst.isMultiple)
             {

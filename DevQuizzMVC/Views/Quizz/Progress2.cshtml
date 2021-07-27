@@ -8,35 +8,36 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <body>
 
-    <h1>Questionnaire</h1>
-    <br />
-    <h2>Question @Model.NumOrder: @Model.QuestionText</h2>
-    <h3>
-        
-        @using (Html.BeginForm("Next", "Quizz", FormMethod.Post))
-        {
-            
-            foreach (var answer in Model.AnswersQuizzDTO)
+    <div class="container doquizz">
+        <h1 class="titlequizz">@ViewBag.QuizzDTO.Title</h1>
+        <br />
+        <h2 class="questionquizz">Question @Model.NumOrder: @Model.QuestionText</h2>
+        <h3>
+
+            @using (Html.BeginForm("Next", "Quizz", FormMethod.Post,new { @class = "quizzform" }))
             {
-                
-                if (!Model.isMultiple)
-                {
-                    @Html.RadioButton("selectedSimpleReponse", @answer.Id)
-                    
 
-                }
-                if (Model.isMultiple)
+                foreach (var answer in Model.AnswersQuizzDTO)
                 {
-                    <input type="checkbox" name="selectedRep[]" value="@answer.Id" />
-                    
+
+                    if (!Model.isMultiple)
+                    {
+                        @Html.RadioButton("selectedSimpleReponse", @answer.Id ,new {@class="radioquizz" , @style = "margin-right: 10px" });
+
+
+                    }
+                    if (Model.isMultiple)
+                    {
+                        <input type="checkbox" name="selectedRep[]" value="@answer.Id" />
+
+                    }
+                    @answer.AnswerText
+                    <br />
                 }
-                @answer.AnswerText
-                <br />
+                <input type="submit" name="Suivant" value="Suivant" class="btn btn-info" />
             }
-            <input type="submit" name="Suivant" />
-        }
-    </h3>
-
+        </h3>
+    </div>
+    
 </body>
-</html>
 
