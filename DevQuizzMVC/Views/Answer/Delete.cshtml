@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Supprimer la réponse</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Etes vous sûr de vouloir supprimer la réponse?</h3>
 <div>
-    <h4>AnswerQuizzDTO</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -42,8 +41,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index", new { id = ViewBag.QuestionDTOId })
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index", new { id = ViewBag.QuestionDTOId })
         </div>
     }
 </div>

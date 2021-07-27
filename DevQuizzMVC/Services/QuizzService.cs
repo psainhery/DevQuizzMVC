@@ -51,5 +51,10 @@ namespace DevQuizzMVC.Services
 
             }
         }
+
+        public void DeleteQuizzDTO(int id)
+        {
+            repo.DeleteQuizzDTO(id);
+        }
     }
 }
