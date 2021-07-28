@@ -148,6 +148,10 @@
     <Compile Include="Migrations\202107261336437_changementCascadeOnDelete.Designer.cs">
       <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107271351431_AjoutPictureQuizz.cs" />
+    <Compile Include="Migrations\202107271351431_AjoutPictureQuizz.Designer.cs">
+      <DependentUpon>202107271351431_AjoutPictureQuizz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\AnswerQuizzRepository.cs" />
     <Compile Include="Repository\QuestionQuizzRepository.cs" />
     <Compile Include="Services\AnswerQuizzService.cs" />
@@ -213,8 +217,8 @@
     <Content Include="Content\cssLogin\select2.min.css" />
     <Content Include="Content\cssLogin\util.css" />
     <Content Include="Content\images\AVT_Bill-Gates_2213.jpg" />
-    <Content Include="Content\images\AVT_Scott-Guthrie_2213.jpg" />
     <Content Include="Content\images\backend.png" />
+    <Content Include="Content\images\backend_resized.png" />
     <Content Include="Content\images\banniere-concepts-mots-frontaux-programmation-applications-web_106317-84.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\images\Bootstrap_logo.svg" />
@@ -228,6 +232,7 @@
     <Content Include="Content\images\imgFront.jpg" />
     <Content Include="Content\images\logout_icon_151219.ico" />
     <Content Include="Content\images\net.svg" />
+    <Content Include="Content\images\person-circle.svg" />
     <Content Include="Content\images\t-sql.png" />
     <Content Include="Content\jsAdminLayout\adminlte.min.js" />
     <Content Include="Content\jsAdminLayout\bootstrap.bundle.min.js" />
@@ -257,6 +262,8 @@
     <Content Include="Content\jsLogin\popper.js" />
     <Content Include="Content\jsLogin\select2.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\picturesQuizz\HTML5.png" />
+    <Content Include="Content\picturesQuizz\HTML6.png" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
@@ -341,6 +348,8 @@
     <Content Include="Views\Login\Reinitialisation.cshtml" />
     <Content Include="Views\Login\UserInconnu.cshtml" />
     <Content Include="Views\Quizz\Edit.cshtml" />
+    <Content Include="Views\Quizz\Delete.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -376,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107261336437_changementCascadeOnDelete.resx">
       <DependentUpon>202107261336437_changementCascadeOnDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107271351431_AjoutPictureQuizz.resx">
+      <DependentUpon>202107271351431_AjoutPictureQuizz.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

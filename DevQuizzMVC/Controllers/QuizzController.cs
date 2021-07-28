@@ -4,6 +4,7 @@ using DevQuizzMVC.Services;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -54,10 +55,13 @@ namespace DevQuizzMVC.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO quizzDTO)
+        public ActionResult Create([Bind(Include = "Id,Title,CategoryId,QuizzCategory,QuestionsQuizz")] QuizzDTO quizzDTO, HttpPostedFileBase Picture)
         {
             if (ModelState.IsValid)
             {
+                quizzDTO.Picture = quizzDTO.Title + Path.GetExtension(Picture.FileName);
+                Picture.SaveAs(Server.MapPath("~/Content/picturesQuizz/") + quizzDTO.Picture);
+
                 service.Add(quizzDTO);
                 return RedirectToAction("Index");
             }
@@ -200,31 +204,51 @@ namespace DevQuizzMVC.Controllers
             return View(QuizDTO);
         }
 
-        public ActionResult Delete(int id)
+        //public ActionResult Delete(int id)
+        //{
+        //    //using with ressources
+
+        //    using (MyContext context = new MyContext())
+        //    {
+        //        Quizz c = context.Quizzes.Find(id);
+
+        //        if (c != null)
+        //        {
+        //            context.Quizzes.Remove(c);
+
+        //            context.SaveChanges();
+
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("erreur ");
+        //        }
+        //        return RedirectToAction("index");
+
+        //    }
+        //}
+
+        public ActionResult Delete(int? id)
         {
-            //using with ressources
-
-            using (MyContext context = new MyContext())
+            if (id == null)
             {
-                Quizz c = context.Quizzes.Find(id);
-
-                if (c != null)
-                {
-                    context.Quizzes.Remove(c);
-
-                    context.SaveChanges();
-
-                }
-                else
-                {
-                    Console.WriteLine("erreur ");
-                }
-                return RedirectToAction("index");
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            QuizzDTO quizzDTO = service.getQuizzDTOById(id);
+            if (quizzDTO == null)
+            {
+                return HttpNotFound();
+            }
+            return View(quizzDTO);
+        }
 
-
-
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            QuizzDTO quizzDTO = service.getQuizzDTOById(id);
+            service.DeleteQuizzDTO(id);
+            return RedirectToAction("Index");
         }
 
 

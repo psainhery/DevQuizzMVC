@@ -57,6 +57,16 @@ namespace DevQuizzMVC.Repository
             return lst;
         }
 
+        public void DeleteUserDTO(int id)
+        {
+            using (MyContext context = new MyContext())
+            {
+                User q = context.Users.Find(id);
+                context.Users.Remove(q);
+                context.SaveChanges();
+            }
+        }
+
         public UserDTO getUserDTOById(int? id)
         {
             UserDTO dto = new UserDTO();

@@ -70,6 +70,7 @@ namespace DevQuizzMVC.Controllers
         }
         
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
 
         public ActionResult Create([Bind(Include = "Id,QuestionText,isMultiple,NumOrder,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
@@ -102,6 +103,7 @@ namespace DevQuizzMVC.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,QuestionText,isMultiple,QuizzId")] QuestionQuizzDTO questionQuizzDTO, int? id)
         {
@@ -131,8 +133,9 @@ namespace DevQuizzMVC.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(QuestionQuizzDTO questionQuizzDTO, int id)
+        public ActionResult DeleteConfirmed( int id)
         {
+            QuestionQuizzDTO questionQuizzDTO = service.GetQuestionQuizzDTOById(id);
             service.DeleteQuestionQuizzDTO(id);
             ViewBag.QuizzDTOId = questionQuizzDTO.QuizzId;
             return RedirectToAction("Index", new { id = questionQuizzDTO.QuizzId });
