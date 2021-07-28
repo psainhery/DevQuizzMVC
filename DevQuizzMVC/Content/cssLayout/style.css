@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: 1001;
 }
 .fh5co-nav .top-menu {
-  padding: 22px 0;
+  padding: 22px;
   display: flex;
   align-items:center;
 }
@@ -281,7 +281,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   /*-ms-border-radius: 1;*/
-  border-radius: 1px;
+  border-radius: 5px;
 }
 .fh5co-nav ul li.btn-cta a:hover span {
   -webkit-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
@@ -1721,6 +1721,8 @@ h1, h2, h3, h4, h5, h6, figure {
     flex-direction: row;
     justify-content: center;
     text-align: center;
+    position:relative;
+    right:2%;
 }
 .socialMedia_icon li{
     list-style : none;
@@ -1735,3 +1737,38 @@ h1, h2, h3, h4, h5, h6, figure {
 .user {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color = 'white' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'%3E%3Cpath d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/%3E%3Cpath fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/%3E%3C/svg%3E");
 }
+
+.titlequizz {
+    font-size: 24px;
+    color: #242424;
+}
+
+.questionquizz{
+    text-align:left;
+    font-size:22px;
+}
+.doquizz{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.quizzform{
+    margin-left:30px;
+}
+
+.quizzform input{
+    font-size:20px;
+}
+
+.btn-info{
+    margin-top:15px;
+}
+
+#selectedSimpleReponse {
+    font-size: 10px;
+}
+
+.formquizz{
+    font-size:20px;
+}
+

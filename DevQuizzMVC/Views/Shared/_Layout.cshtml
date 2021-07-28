@@ -1,9 +1,12 @@
 ﻿<!DOCTYPE HTML>
 <html>
+@using DevQuizzMVC.DTO;
+@{ UserDTO dto = (UserDTO)Session["user"]; }
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Education &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
+    <title>DevQuizz;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
     <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -69,7 +72,7 @@
     <link href="~/Content/cssLayout/style.css" rel="stylesheet" />
 
     <!-- Modernizr JS -->
-    
+
     <script src="~/Content/jsLayout/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
@@ -83,31 +86,41 @@
 
     <div id="page">
         <nav class="fh5co-nav" role="navigation">
-            
+
             <div class="top-menu">
                 <div class="container">
-                    <div class="row menu-center" >
+                    <div class="row menu-center">
                         <div class="col-xs-2">
                             <a href="@Url.Action("Index", "Home")"><img class="logoIcon" src="@Url.Content("~/Content/images/DevQuizz_small.png")" alt="Alternate Text" /></a>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
-                                <li class="active">@Html.ActionLink("Accueil","Index","Home")</li>
-                                <li>@Html.ActionLink("Quizz","Index","Category")</li>
-
+                                <li class="active">@Html.ActionLink("Accueil", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Quizz", "Index", "Category")</li>
                                 <li><a href="#fh5co-footer">Contact</a></li>
-                                <li class="btn-cta"><a href="/Login/Index"><span>Login</span></a></li>
+
+                                @if (Session["connexion"] != null)
+                                {
+                                    <li class="text-primary">@Session["connexion"]</li>
+                                    <li class="btn-cta"><a href="/Login/Logout"><span>Déconnexion</span></a></li>
+
+                                }
+                                else
+                                {
+                                    <li class="btn-cta"><a href="/Login/Index"><span>Login</span></a></li>
+                                }
+
                             </ul>
                         </div>
                     </div>
 
-                </div>o
+                </div>
             </div>
         </nav>
-        
-        
-            @RenderBody()
-            
+
+
+        @RenderBody()
+
 
         <footer id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
             <div class="overlay"></div>
@@ -194,9 +207,11 @@
     </div>
 
     <div class="gototop js-top">
-        <a href="#" class="js-gotop"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" alignment-baseline="central" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-</svg></a>
+        <a href="#" class="js-gotop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" alignment-baseline="central" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+            </svg>
+        </a>
     </div>
 
     <!-- jQuery -->
@@ -232,7 +247,7 @@
 
     <script src="~/Content/jsLayout/simplyCountdown.js"></script>
     <!-- Main -->
-    
+
     <script src="~/Content/jsLayout/main.js"></script>
     <script>
         var d = new Date(new Date().getTime() + 1000 * 120 * 120 * 2000);
