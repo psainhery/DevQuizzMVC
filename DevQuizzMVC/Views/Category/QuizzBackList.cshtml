@@ -5,28 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Liste des Quizz Back-End</h2>
-<hr />
-<br />
+<h2 class="titleQuizzList">Liste des Quizz Back-End</h2>
 
 
-<div class="container">
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Title)
-            </th>
-        </tr>
 
+
+<div class="container listContain">
+    <div class="row flexRowFront">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "DoQuizz", "Quizz", new { id = item.Id }, null)
-                </td>
-            </tr>
-}
-
-    </table>
-
+            <div class="col-md-3 iconQuizzDiv">
+                <a href="@Url.Action("Demarrer", "Quizz" , new { id=item.Id }, null)"><img style="height:150px" src="../../Content/picturesQuizz/@item.Picture" /></a>
+            </div>
+        }
+    </div>
 </div>

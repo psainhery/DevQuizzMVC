@@ -1698,6 +1698,24 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 45px;
 }
 
+.listContain{
+    margin: 150px auto 350px;
+}
+
+.titleQuizzList{
+    margin : 50px auto;
+    text-align: center;
+}
+
+.flexRowFront{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.iconQuizzDiv{
+    display: flex;
+    justify-content: center;
+}
 .socialMedia_icon {
     display: flex;
     flex-direction: row;

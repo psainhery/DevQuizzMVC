@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Filters\LoginFilter.cs" />
     <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.cs" />
     <Compile Include="Migrations\202107220938234_RajoutProprieteNumOrderQuestionClass.Designer.cs">
       <DependentUpon>202107220938234_RajoutProprieteNumOrderQuestionClass.cs</DependentUpon>
@@ -261,8 +262,11 @@
     <Content Include="Content\jsLogin\popper.js" />
     <Content Include="Content\jsLogin\select2.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\picturesQuizz\Bootstrap.png" />
+    <Content Include="Content\picturesQuizz\Csharp.png" />
+    <Content Include="Content\picturesQuizz\CSS3.png" />
     <Content Include="Content\picturesQuizz\HTML5.png" />
-    <Content Include="Content\picturesQuizz\HTML6.png" />
+    <Content Include="Content\picturesQuizz\SQL.png" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />

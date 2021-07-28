@@ -1,4 +1,5 @@
 ﻿using DevQuizzMVC.DTO;
+using DevQuizzMVC.Filters;
 using DevQuizzMVC.Models;
 using DevQuizzMVC.Services;
 using PagedList;
@@ -110,7 +111,7 @@ namespace DevQuizzMVC.Controllers
 
             return View(lst.ToPagedList(i ?? 1, 5));
         }
-
+        [LoginFilter]
         public ActionResult Demarrer(int id)
         {
             Session["score"] = 0;
