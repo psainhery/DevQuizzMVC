@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,8 +11,18 @@
     <title>Confirmation</title>
 </head>
 <body>
-    <div> 
-        <h4>Consultez votre boite émail et cliquez sur le lien de réinitialisation. @Html.ActionLink("Retour à l'accueil","Index", "Home") </h4>
+    <div class="container">
+        <div class="alert alert-info">
+            <h4>  Mot de passe reinitialisé.</h4>
+        </div>
+        Consultez votre boite email et cliquez sur le lien de réinitialisation. @Html.ActionLink("Retour à l'accueil", "Index", "Home") 
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
 </body>
 </html>
