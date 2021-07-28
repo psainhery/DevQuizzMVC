@@ -133,36 +133,56 @@ namespace DevQuizzMVC.Controllers
             if (!qst.isMultiple)
             {
                 int idReponse = Convert.ToInt32(form.Get("selectedSimpleReponse"));
-                if (service.FindReponse(quizzId, qst.Id, idReponse).isCorrect)
+                if (idReponse>0)
                 {
-                    score++;
-                    Session["score"] = score;
+                    if (service.FindReponse(quizzId, qst.Id, idReponse).isCorrect)
+                    {
+                        score++;
+                        Session["score"] = score;
+                    }
+                    else
+                    {
+                        score--;
+                        Session["score"] = score;
+                    }
                 }
                 else
                 {
-                    score--;
-                    Session["score"] = score;
-                }
+                    ViewBag.Error = "Veuilez séléctionner une réponse";
+                    return View("Progress2", qst);
+
+                } 
+                                
             }
             else
             {
-                string[] reponses = form.GetValues("selectedRep[]");
-                bool[] tabRep = new bool[reponses.Length];
-                for (int i = 0; i < reponses.Length; i++)
+                string[] reponses = form.GetValues("selectedRep[]");                
+                if (reponses==null)
                 {
-                    tabRep[i] = service.FindReponse(quizzId, qst.Id, Convert.ToInt32(reponses[i])).isCorrect;
-                }
-                bool exist = tabRep.Contains(false);
-                if(exist == true)
-                {
-                    score--;
-                    Session["score"] = score;
+                    ViewBag.Error = "Veuilez séléctionner une réponse";
+                    return View("Progress2", qst);
+
                 }
                 else
                 {
-                    score++;
-                    Session["score"] = score;
+                    bool[] tabRep = new bool[reponses.Length];
+                    for (int i = 0; i < reponses.Length; i++)
+                    {
+                        tabRep[i] = service.FindReponse(quizzId, qst.Id, Convert.ToInt32(reponses[i])).isCorrect;
+                    }
+                    bool exist = tabRep.Contains(false);
+                    if (exist == true)
+                    {
+                        score--;
+                        Session["score"] = score;
+                    }
+                    else
+                    {
+                        score++;
+                        Session["score"] = score;
+                    }
                 }
+
             }
             if(ordre < quizzDto.QuestionsQuizzDTO.Count)
             {

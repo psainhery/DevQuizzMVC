@@ -12,7 +12,7 @@
         <h1 class="titlequizz">@ViewBag.QuizzDTO.Title</h1>
         <br />
         <h2 class="questionquizz">Question @Model.NumOrder: @Model.QuestionText</h2>
-        <h3>
+        <h3 class="formquizz">
 
             @using (Html.BeginForm("Next", "Quizz", FormMethod.Post,new { @class = "quizzform" }))
             {
@@ -22,7 +22,7 @@
 
                     if (!Model.isMultiple)
                     {
-                        @Html.RadioButton("selectedSimpleReponse", @answer.Id ,new {@class="radioquizz" , @style = "margin-right: 10px" });
+                        @Html.RadioButton("selectedSimpleReponse", @answer.Id ,new {@class="radioquizz" , @style = "margin-right: 10px"});
 
 
                     }
@@ -35,8 +35,12 @@
                     <br />
                 }
                 <input type="submit" name="Suivant" value="Suivant" class="btn btn-info" />
+                //@Html.ValidationMessageFor(model => model.AnswersQuizzDTO, ViewBag.Error, new { @class = "text-danger" })
+                
             }
+            
         </h3>
+        <p class="text-danger">@ViewBag.Error</p>
     </div>
     
 </body>
