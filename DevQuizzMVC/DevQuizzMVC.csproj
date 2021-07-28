@@ -230,6 +230,7 @@
     <Content Include="Content\images\imgBack.jpg" />
     <Content Include="Content\images\imgDoc.jpg" />
     <Content Include="Content\images\imgFront.jpg" />
+    <Content Include="Content\images\logout_icon_151219.ico" />
     <Content Include="Content\images\net.svg" />
     <Content Include="Content\images\person-circle.svg" />
     <Content Include="Content\images\t-sql.png" />

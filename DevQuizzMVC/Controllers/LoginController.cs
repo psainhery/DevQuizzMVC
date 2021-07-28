@@ -34,6 +34,7 @@ namespace DevQuizzMVC.Controllers
                 UserDTO user = service.findUserByEmailAndPassword(dto);
                 if (user != null && user.Id != 0)
                 {
+                    Session["connexion"] = user.Name;
                     if (user.isAdmin)
                     {
                         Session["userAdmin"] = user;
@@ -65,7 +66,7 @@ namespace DevQuizzMVC.Controllers
             //Session["userAdmin"] = null;
             //Session.Abandon();
             Session.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult ResetPassword()
@@ -141,19 +142,32 @@ namespace DevQuizzMVC.Controllers
         public ActionResult NewPassword(FormCollection form)
         {
             string password = form.Get("password");
-            string ConfimPassword = form.Get("ConfimPassword");
-
-            if (password.Equals(ConfimPassword))
+            string ConfirmPassword = form.Get("ConfirmPassword");
+            if (password.Equals("") || password.Length<8)
             {
-                ViewBag.Error = "Les deux mots de passe sont différents";
+                ViewBag.Error2 = "Le mot de passe doit contenir au moins 8 caractères!";
                 return View("Reinitialisation");
             }
+            else
+            {              
+                if (!password.Equals(ConfirmPassword))
+                {
+                    ViewBag.Error = "Les deux mots de passe sont différents";
+                    return View("Reinitialisation");
+                }
+                else
+                {
+                    string email = (string)Session["email"];
+                    UserDTO userDB = service.getAllUsers().SingleOrDefault(u => u.Email.Equals(email));
+                    userDB.Password = password;
+                    service.Update(userDB);
+                    return RedirectToAction("Index");
+                }
+            }
 
-            string email = (string)Session["email"];
-            UserDTO userDB = service.getAllUsers().SingleOrDefault(u => u.Email.Equals(email));
-            userDB.Password = password;
-            service.Update(userDB);
-            return RedirectToAction("Index");
+            
+
+            
         }
 
 
