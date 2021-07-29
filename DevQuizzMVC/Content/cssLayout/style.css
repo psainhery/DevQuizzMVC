@@ -1749,7 +1749,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .doquizz{
     margin-top:50px;
-    margin-bottom:50px;
+    margin-bottom:80px;
 }
 
 .quizzform{
@@ -1772,3 +1772,7 @@ h1, h2, h3, h4, h5, h6, figure {
     font-size:20px;
 }
 
+.divScore{
+    margin: 150px 0;
+    
+}

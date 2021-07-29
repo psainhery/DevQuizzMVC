@@ -92,7 +92,7 @@ namespace DevQuizzMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserName,Password,isAdmin,Email")] UserDTO userDTO)
+        public ActionResult Edit([Bind(Include = "Id,Name,Password,isAdmin,Email")] UserDTO userDTO)
         {
             if (ModelState.IsValid)
             {
